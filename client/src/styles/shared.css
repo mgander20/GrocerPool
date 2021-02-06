@@ -28,15 +28,16 @@
 }
 
 .body-text-two {
-  font-size: 14px;
+  font-size: 12px;
   padding: 0;
   margin: 0;
 }
 
 .body-text-three {
-  font-size: 14px;
-  padding: 0px 0px 20px 0px;
+  font-size: 16px;
+  padding: 5px 0px 20px 0px;
   margin: 0;
+  color: gray;
 }
 
 .body-text-four {
