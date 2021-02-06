@@ -5,7 +5,7 @@ let AppContext = createContext({})
 
 const initialState = {
     appName : "Grocery Partners",
-    user : false
+    user : localStorage.getItem("uOttawaHackUser")
 }
 
 let reducer = (state, action) => {

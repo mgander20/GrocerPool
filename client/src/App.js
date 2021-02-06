@@ -15,10 +15,12 @@ import Home from './pages/Home';
 import WelcomePage from './pages/WelcomePage';
 
 // Components
-import { NavbarLoggedIn, NavbarPublic } from "./components/Navbar";
 
 // Modules 
 import { AppContext } from "./State"
+import ProfilePage from './pages/ProfilePage';
+import ChatPage from './pages/ChatPage';
+import AddPage from './pages/AddPage';
 
 const AuthRoutes = () => (
   <Switch>
@@ -31,6 +33,9 @@ const AuthRoutes = () => (
 const AppRoutes = () => (
   <Switch>
     <Route component={Home} path="/" exact />
+    <Route component={ProfilePage} path="/profile" exact />
+    <Route component={ChatPage} path="/chat" exact />
+    <Route component={AddPage} path="/add" exact />
   </Switch>
 )
 

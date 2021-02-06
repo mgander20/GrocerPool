@@ -1,67 +1,77 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { AppContext } from "../State"
 
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import Badge from '@material-ui/core/Badge';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import { Link } from "react-router-dom";
+
 
 // Hooks
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+
+// CSS
+import "../styles/shared.css"
+import "../styles/welcome.css"
 
 
-function NavbarPublic() {
-    return (
-        <AppBar color="colorSecondary" position="static">
-            <Toolbar>
-                <Typography variant="h6">
-                    LOGO
-                </Typography>
-                <Button color="dark">Login</Button>
-            </Toolbar>
-        </AppBar>
-    )
-}
+const useStyles = makeStyles((theme) => ({
+    root: {
+        padding: '40px 100px',
+        backgroundColor: 'rgba(223, 230, 237, 0.8)',
+    },
+    btn: {
+        backgroundColor: 'rgba(44,174,159,09)',
+        color: "white",
+        fontSize: '20px',
+    },
+    btn2: {
+        backgroundColor: 'rgba(44,174,159,09)',
+        color: "white",
+        margin: "1px 10px",
+        minWidth: "100px"
+    },
+    btn3: {
+        margin: "1px 10px",
+        minWidth: "100px",
+        borderBottom: "1px solid black"
+    },
+    bodyTwo: {
+        padding: '80px 0px 0px 0px'
+    },
+    link: {
+        textDecoration: 'none'
+    }
+}))
 
 function NavbarLoggedIn() {
-    return (
-        <AppBar position="static">
-            <Toolbar>
-                <Typography variant="h6">
-                    LOGO
-                </Typography>
+    const classes = useStyles();
+    const { state, dispatch } = useContext(AppContext)
 
-                <div>
-                    <IconButton aria-label="show 4 new mails" color="inherit">
-                    <Badge badgeContent={4} color="secondary">
-                        <MailIcon />
-                    </Badge>
-                    </IconButton>
-                    <IconButton aria-label="show 17 new notifications" color="inherit">
-                    <Badge badgeContent={17} color="secondary">
-                        <NotificationsIcon />
-                    </Badge>
-                    </IconButton>
-                    <IconButton
-                    edge="end"
-                    aria-label="account of current user"
-                    aria-haspopup="true"
-                    // onClick={handleProfileMenuOpen}
-                    color="inherit"
-                    >
-                    <AccountCircle />
-                    </IconButton>
-                </div>
-                <div>
-                    <Button color="dark">Logout</Button>
-                </div>
-            </Toolbar>
-        </AppBar>
+
+    return (
+        <Box m={3} display="flex" justifyContent="space-between">
+            <h1>{state.appName}</h1>
+            <Box m={3}>
+                <Link className={classes.link} to="/profile">
+                    <Button
+                        className={classes.btn3}
+                    >Profile</Button>
+                </Link>
+                <Link className={classes.link} to="/chat">
+                    <Button
+                        className={classes.btn3}
+                    >Chat</Button>
+                </Link>
+                <Link className={classes.link} to="/add">
+                    <Button
+                        className={classes.btn2}
+                    >Create Grocery List</Button>
+                </Link>
+            </Box>
+        </Box>
     )
 }
 
-export { NavbarPublic, NavbarLoggedIn }
+export { NavbarLoggedIn }

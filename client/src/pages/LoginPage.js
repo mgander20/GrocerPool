@@ -28,10 +28,15 @@ const useStyles = makeStyles((theme) => ({
         height: "86vh",
     },
     rightBox: {
-        backgroundColor: "#20393A",
         display: "flex",
         flexDirection: "column",
-        margin: "auto"
+        margin: "auto",
+        padding: '60px',
+    },
+    link: {
+        textDecoration: 'none',
+        color: "black",
+        fontWeight: 100
     }
   }));
 
@@ -47,14 +52,19 @@ function LoginPage({ history }) {
     const validInput = !(email && password)
 
     const doLogin = () => {
-        if(email === "test" && password=== "test"){
+        if(email === "test@test.com" && password=== "hack"){
             console.log("SEND THESE TO POST", email, password )
+
+            localStorage.setItem("uOttawaHackUser", email)
             history.push("/")
             dispatch({
-                type: "doLogin"
+                type: "doLogin",
+                currentUser: email,
             })
         } else {
             setError(true)
+            setEmail("")
+            setPassword("")
         }
     }
     return (
@@ -62,7 +72,7 @@ function LoginPage({ history }) {
             <Box className={classes.mainBox} display="flex" flexDirection="row" borderRadius="7%">
                 <Box  className={[classes.leftBox, "leftBox"]} borderRadius="7% 0 0 7%"></Box>
                 <Box className={classes.rightBox}>
-                    <Link to="/register" variant="contained">Register Instead</Link>
+                    <Link className={classes.link} to="/register" variant="contained">Register Instead</Link>
                     <h1>Welcome Back!</h1>
                     <TextField 
                         onChange={(e)=> { setEmail(e.target.value) }}
@@ -78,8 +88,10 @@ function LoginPage({ history }) {
                         onClick={doLogin}
                         type="default"
                         >Login</Button>
+                    <Box>
+                        <p>Test User: test@test.com & pass: hack</p>
+                    </Box>
                     { error ? <h2>WRONG PASSWORD</h2> : null }
-
                 </Box>
             </Box>
         </Container>

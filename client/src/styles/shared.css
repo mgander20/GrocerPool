@@ -1,0 +1,30 @@
+.header-main {
+  font-size: xx-large;
+  font-weight: 900;
+}
+.header-sub {
+  font-size: x-large;
+  font-weight: 300;
+  max-width: 450px;
+  padding: 10px 10px 20px 0px;
+}
+
+.profile-img {
+  width: 200px;
+}
+
+.header-two {
+  font-size: larger;
+  margin-bottom: 5px;
+}
+
+.body-text-two {
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+.body-text-three {
+  font-size: 14px;
+  padding: 0px 0px 20px 0px;
+  margin: 0;
+}
