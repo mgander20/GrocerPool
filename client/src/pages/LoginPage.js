@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from "react-router-dom";
 
 // material Ui Shit
@@ -12,6 +12,9 @@ import Paper from '@material-ui/core/Paper';
 
  //CSS 
  import "../styles/login.css"
+
+ // Modules
+ import { AppContext } from "../State"
 
 const useStyles = makeStyles((theme) => ({
     
@@ -32,11 +35,28 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-
-
-function LoginPage() {
+function LoginPage({ history }) {
     const classes = useStyles();
+    const { state, dispatch } = useContext(AppContext)
 
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [error, setError] = useState(false)
+
+
+    const validInput = !(email && password)
+
+    const doLogin = () => {
+        if(email === "test" && password=== "test"){
+            console.log("SEND THESE TO POST", email, password )
+            history.push("/")
+            dispatch({
+                type: "doLogin"
+            })
+        } else {
+            setError(true)
+        }
+    }
     return (
         <Container maxWidth="lg">
             <Box className={classes.mainBox} display="flex" flexDirection="row" borderRadius="7%">
@@ -44,9 +64,22 @@ function LoginPage() {
                 <Box className={classes.rightBox}>
                     <Link to="/register" variant="contained">Register Instead</Link>
                     <h1>Welcome Back!</h1>
-                    <TextField required label="Email" />
-                    <TextField required type="password" label="Password"/>
-                    <Button type="default">Login</Button>
+                    <TextField 
+                        onChange={(e)=> { setEmail(e.target.value) }}
+                        required 
+                        label="Email" />
+                    <TextField 
+                        onChange={(e)=> { setPassword(e.target.value) }}
+                        required 
+                        type="password" 
+                        label="Password"/>
+                    <Button 
+                        disabled={validInput}
+                        onClick={doLogin}
+                        type="default"
+                        >Login</Button>
+                    { error ? <h2>WRONG PASSWORD</h2> : null }
+
                 </Box>
             </Box>
         </Container>

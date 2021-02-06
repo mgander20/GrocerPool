@@ -20,8 +20,6 @@ import { NavbarLoggedIn, NavbarPublic } from "./components/Navbar";
 // Modules 
 import { AppContext } from "./State"
 
-
-
 const AuthRoutes = () => (
   <Switch>
       <Route component={WelcomePage} path="/" exact />

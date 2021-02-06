@@ -1,18 +1,23 @@
+import { findAllByDisplayValue } from "@testing-library/react";
 import React, { createContext, useReducer } from "react";
 
 let AppContext = createContext({})
 
 const initialState = {
     appName : "Grocery Partners",
-    // user : JSON.parse(localStorage.getItem("currentUser"))
     user : false
-
 }
 
 let reducer = (state, action) => {
     switch (action.type) {
         case "setAppName": {
             return {...state, appName: action.payload.appName}
+        }
+        case "doLogin": {
+            return {
+                ...state, 
+                user: true
+            }
         }
     }
 }
