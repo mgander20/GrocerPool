@@ -9,10 +9,11 @@ const connectClient = async () => {
       username: process.env.ASTRA_DB_USERNAME,
       password: process.env.ASTRA_DB_PASSWORD,
     });
-    console.log(astraClient);
   } catch (error) {
     console.log(error);
   }
 };
+
+connectClient()
 
 module.exports = connectClient;
