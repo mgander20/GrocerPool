@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 
 // material Ui Shit
@@ -27,6 +27,21 @@ const useStyles = makeStyles((theme) => ({
 function RegisterPage() {
 
     const classes = useStyles();
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
+    const [submit, setSubmit] = useState(false)
+    const [error, setError] = useState(false)
+
+
+    const doRegistration = () => {
+        console.log(email)
+        console.log(password)
+        console.log(confirmPassword)
+        console.log(email)
+    }
+
+    const validInput = !(email && ( password === confirmPassword))
 
     return (
         <Container maxWidth="lg">
@@ -36,11 +51,35 @@ function RegisterPage() {
                 <Box className={classes.rightBox}>
                     <Link to="/login" variant="contained">Sign In Instead</Link>
                     <h1>Join the Community</h1>
-                    <TextField required label="email" />
-                    <TextField required type="password" label="Password" />
-                    <TextField required type="password" label="Confirm password"/>
-                    <Button type="default">Submit</Button>
+                    <TextField 
+                        required 
+                        label="email" 
+                        onChange={(e)=> { setEmail(e.target.value) }}
+                        />
+                    <TextField 
+                        required 
+                        type="password" 
+                        label="Password" 
+                        onChange={(e)=> { setPassword(e.target.value) }}
+                        />
+                    <TextField 
+                        required 
+                        type="password" 
+                        label="re-type password"
+                        onChange={(e)=> { setConfirmPassword(e.target.value) }}
+                        />
+                    <Button 
+                        disabled={validInput} 
+                        type="default"
+                        onClick={doRegistration}
+                        >Submit</Button>
                 </Box>
+                {
+                    error ?
+                <Box>
+                    <h5>Registration Failed</h5>
+                </Box> : null
+                }
             </Box>
         </Container>
     )
