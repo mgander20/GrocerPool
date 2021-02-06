@@ -9,7 +9,8 @@ const connectClient = async () => {
       username: process.env.ASTRA_DB_USERNAME,
       password: process.env.ASTRA_DB_PASSWORD,
     });
-    console.log(astraClient);
+    console.log('Connected to astra');
+    return astraClient;
   } catch (error) {
     console.log(error);
   }
