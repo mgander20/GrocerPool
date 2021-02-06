@@ -14,12 +14,11 @@ import { Link } from "react-router-dom";
 
 import "../styles/shared.css"
 import "../styles/welcome.css"
+import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     banner: {
         width: '100%',
-        height: '20vh',
-        border: "1px solid black"
     },
     bodySub: {
         border: "1px solid grey",
@@ -38,7 +37,16 @@ const useStyles = makeStyles((theme) => ({
     },
     gridList: {
         height: "294px",
-        border: "1px solid grey"    
+        border: "1px solid grey",
+    }, 
+    notificationBody: {
+        backgroundColor: 'rgba(44,174,159,09)',
+        color: "white",
+        padding: '20px'
+    },
+    notificationCard: {
+        display: "flex",
+        flexDirection: "row"
     }
 }))
 
@@ -47,10 +55,16 @@ const SHOPPERS_DATA = [
     { name: "John Doe", time: "30 Minues ago", location: "Toronto", src:"https://i.imgur.com/tLKjtrE.png" } , 
     { name: "John Doe", time: "30 Minues ago", location: "Toronto", src:"https://i.imgur.com/tLKjtrE.png" } , 
     { name: "John Doe", time: "30 Minues ago", location: "Toronto", src:"https://i.imgur.com/tLKjtrE.png" } , 
-    { name: "John Doe", time: "30 Minues ago", location: "Toronto", src:"https://i.imgur.com/tLKjtrE.png" } 
+    { name: "John Doe", time: "30 Minues ago", location: "Toronto", src:"https://i.imgur.com/tLKjtrE.png" } ,
+    { name: "John Doe", time: "30 Minues ago", location: "Toronto", src:"https://i.imgur.com/tLKjtrE.png" } , 
+    { name: "John Doe", time: "30 Minues ago", location: "Toronto", src:"https://i.imgur.com/tLKjtrE.png" } , 
+    { name: "John Doe", time: "30 Minues ago", location: "Toronto", src:"https://i.imgur.com/tLKjtrE.png" } ,
 ]
 
 const ORDER_DATA = [ 
+    { name: "John Doe", time: "30 Minues ago", location: "Toronto", src:"https://i.imgur.com/tLKjtrE.png" } , 
+    { name: "John Doe", time: "30 Minues ago", location: "Toronto", src:"https://i.imgur.com/tLKjtrE.png" } , 
+    { name: "John Doe", time: "30 Minues ago", location: "Toronto", src:"https://i.imgur.com/tLKjtrE.png" } , 
     { name: "John Doe", time: "30 Minues ago", location: "Toronto", src:"https://i.imgur.com/tLKjtrE.png" } , 
     { name: "John Doe", time: "30 Minues ago", location: "Toronto", src:"https://i.imgur.com/tLKjtrE.png" } , 
     { name: "John Doe", time: "30 Minues ago", location: "Toronto", src:"https://i.imgur.com/tLKjtrE.png" } , 
@@ -66,7 +80,7 @@ function Home() {
     return (
         <Container maxWidth="lg">
             <NavbarLoggedIn />
-            <div className={classes.banner}></div>
+            <img src="https://i.imgur.com/rYXiycW.jpg" className={classes.banner}></img>
 
             <Box className={classes.body}>
                 <h1 className="header-main">Upcoming shoppers</h1>
@@ -84,10 +98,23 @@ function Home() {
                 <GridList className={classes.gridList} cols={2.5}>
                     <Table className={classes.table}>                    
                         {
-                            [1,2,3,4,5,6,7,8].map(item => (<ProfileCard />))
+                            ORDER_DATA.map(item => (<ProfileCard />))
                         }
                     </Table>
                 </GridList>
+            </Box>
+
+            <Box className={classes.notificationBody}>
+                <h1 className="header-main header-main-two">Notifications</h1>
+                {
+                    [1,2,3,4].map(item => (
+                    <Box m={5}>
+                        <hr></hr>
+                        <NotificationBox />
+                    </Box>
+                    ))
+                }
+                <Button color="primary">View All</Button>
             </Box>
 
         </Container>
@@ -98,11 +125,23 @@ function ProfileCard() {
     const classes = useStyles();
 
     return(
-        <Box className={classes.cardBody}>
+        <Box m={3} className={classes.cardBody}>
             <img className="profile-img" src="https://i.imgur.com/tLKjtrE.png"></img>
             <p className="header-two">John Doe</p>
             <p className="body-text-two">30 Minutes</p>
             <p className="body-text-three">Toronto</p>
+        </Box>
+    )
+}
+
+function NotificationBox() {
+    const classes = useStyles();
+
+    return(
+        <Box className={classes.notificationCard}>
+            <img className="profile-img-notification" src="https://i.imgur.com/tLKjtrE.png"></img>
+            <p className="header-two">John Doe</p>
+            <p className="body-text-two">30 Minutes</p>
         </Box>
     )
 }

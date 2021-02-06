@@ -12,10 +12,18 @@
 .profile-img {
   width: 200px;
 }
+.profile-img-notification {
+  width: 100px;
+  border-radius: 100px;
+}
 
 .header-two {
   font-size: larger;
   margin-bottom: 5px;
+}
+
+.header-main-two {
+  color: white;
 }
 
 .body-text-two {
