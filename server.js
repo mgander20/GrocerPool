@@ -9,7 +9,23 @@ const app = express();
 require('./config/passport')(passport);
 
 // Connect to Database
-const astraClient = astra();
+// const connectToUsers = async () => {
+//   try {
+//     const users = await astra()
+//   } catch (e) {
+//     console.error(e)
+//   }
+// }
+
+
+
+// const test_func = async () => {
+//   const test = await users.find({})
+// }
+
+
+
+
 
 // middleware
 // parse application/x-www-form-urlencoded

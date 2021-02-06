@@ -7,6 +7,9 @@ const users = require('../config/astra');
 
 const router = express.Router();
 
+// collection definition
+
+
 // login success response
 router.get('/login-success', (req, res) => {
   res.json({ msg: 'login success' });

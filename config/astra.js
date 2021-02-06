@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { createClient } = require('@astrajs/collections');
 
-const connectClient = async () => {
+module.exports = async () => {
   try {
     const astraClient = await createClient({
       astraDatabaseId: process.env.ASTRA_DB_ID,
@@ -9,13 +9,13 @@ const connectClient = async () => {
       username: process.env.ASTRA_DB_USERNAME,
       password: process.env.ASTRA_DB_PASSWORD,
     });
+    const users = await astraClient.namespace(process.env.ASTRA_DB_KEYSPACE).collection('users')
     console.log('Connected to astra');
-    return astraClient;
+    return users
+
   } catch (error) {
     console.log(error);
   }
 };
 
-connectClient()
 
-module.exports = connectClient;
