@@ -28,7 +28,7 @@ router.post('/login', (req, res, next) => {
 // register form post
 router.post('/register', async (req, res) => {
   const errors = [];
-
+  console.log(req.body.password);
   if (req.body.password != req.body.password2) {
     errors.push({ text: 'Passwords do not match' });
   }

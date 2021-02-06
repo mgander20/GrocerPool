@@ -1,7 +1,7 @@
 const express = require('express');
 const astra = require('./config/astra');
 const passport = require('passport');
-
+const bodyParser = require('body-parser');
 // intialize Express
 const app = express();
 
@@ -10,6 +10,13 @@ require('./config/passport')(passport);
 
 // Connect to Database
 const astraClient = astra();
+
+// middleware
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 
 // requests
 app.get('/', (req, res) => {
