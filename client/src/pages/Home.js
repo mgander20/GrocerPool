@@ -35,6 +35,12 @@ const useStyles = makeStyles((theme) => ({
     cardBody: {
         textAlign: 'center'
     },
+    bottomBannerBody: {
+        textAlign: 'center',
+        height: '250px',
+        backgroundColor: 'rgba(44,174,159,09)',
+        color: 'white'
+    },
     gridList: {
         height: "319px",
         border: "1px solid grey",
@@ -122,6 +128,9 @@ function Home() {
                 <Button className={classes.btnViewAll} color="primary">View All</Button>
             </Box>
 
+            <img src="https://i.imgur.com/Veg0t8v.png" className={classes.banner}></img>
+            
+            <BottomBanner />
         </Container>
     )
 }
@@ -153,4 +162,16 @@ function NotificationBox() {
     )
 }
 
+function BottomBanner() {
+    const classes = useStyles();
+
+    return (
+        <Box className={classes.bottomBannerBody}>
+            <Box p={8}>
+                <img className="profile-img-notification" src="https://st2.depositphotos.com/6572538/10193/v/950/depositphotos_101937050-stock-illustration-tobacco-tree-plants-and-flowers.jpg"></img>
+                <p style={{padding: '15px 10px 10px 0px'}}>Copyright 2021</p>
+            </Box>
+        </Box>
+    )
+}
 export default Home
