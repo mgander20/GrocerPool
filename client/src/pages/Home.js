@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 
 import "../styles/shared.css"
 import "../styles/welcome.css"
+import "../styles/home.css"
 import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -39,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center',
         height: '250px',
         backgroundColor: 'rgba(44,174,159,09)',
-        color: 'white'
+        color: 'white',
     },
     gridList: {
         height: "319px",
@@ -94,7 +95,7 @@ function Home() {
             <img src="https://i.imgur.com/rYXiycW.jpg" className={classes.banner}></img>
 
             <Box className={classes.body}>
-                <h1 className="header-main">Upcoming shoppers</h1>
+                <h1 className="header-main">Upcoming Scheduled Trips</h1>
                 <GridList className={classes.gridList} cols={2.5}>
                     <Table className={classes.table}>                    
                         {
@@ -105,7 +106,7 @@ function Home() {
             </Box>
             
             <Box className={classes.body}>
-                <h1 className="header-main">Upcoming Orders</h1>
+                <h1 className="header-main">Upcoming Requested Orders</h1>
                 <GridList className={classes.gridList} cols={2.5}>
                     <Table className={classes.table}>                    
                         {
@@ -140,10 +141,16 @@ function ProfileCard() {
 
     return(
         <Box m={3} className={classes.cardBody}>
-            <img className="profile-img" src="https://i.imgur.com/tLKjtrE.png"></img>
-            <p className="header-two">John Doe</p>
-            <p className="body-text-two">30 Minutes</p>
-            <p className="body-text-three">Toronto</p>
+            <div className="profileCard">
+                <img className="profile-img" src="https://i.imgur.com/tLKjtrE.png"></img>
+                <p className="header-two">John Doe</p>
+                <p className="body-text-two">30 Minutes</p>
+                <p className="body-text-three">Toronto</p>
+            </div>
+            <div className="profileCard-hidden">
+                <img className="profile-img" src="https://i.imgur.com/tLKjtrE.png"></img>
+                <Button>Request</Button>
+            </div>
         </Box>
     )
 }
@@ -167,7 +174,7 @@ function BottomBanner() {
 
     return (
         <Box className={classes.bottomBannerBody}>
-            <Box p={8}>
+            <Box pt={8}>
                 <img className="profile-img-notification" src="https://st2.depositphotos.com/6572538/10193/v/950/depositphotos_101937050-stock-illustration-tobacco-tree-plants-and-flowers.jpg"></img>
                 <p style={{padding: '15px 10px 10px 0px'}}>Copyright 2021</p>
             </Box>

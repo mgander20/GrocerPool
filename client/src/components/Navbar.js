@@ -41,7 +41,8 @@ const useStyles = makeStyles((theme) => ({
         padding: '80px 0px 0px 0px'
     },
     link: {
-        textDecoration: 'none'
+        textDecoration: 'none',
+        color: 'black'
     }
 }))
 
@@ -52,7 +53,9 @@ function NavbarLoggedIn() {
 
     return (
         <Box m={3} display="flex" justifyContent="space-between">
-            <h1>{state.appName}</h1>
+            <Link className={classes.link} to="/">
+                <h1>{state.appName}</h1>
+            </Link>
             <Box m={3}>
                 <Link className={classes.link} to="/profile">
                     <Button

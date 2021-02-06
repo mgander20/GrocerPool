@@ -1,0 +1,15 @@
+.profileCard-hidden {
+  position: relative;
+  bottom: 295px;
+  cursor: pointer;
+  opacity: 0;
+}
+.profileCard-hidden:hover {
+  perspective: 9000;
+  transition: 0.09s ease-in;
+  position: relative;
+  bottom: 300px;
+  z-index: 1;
+  cursor: pointer;
+  opacity: 1;
+}
