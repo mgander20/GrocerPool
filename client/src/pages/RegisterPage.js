@@ -14,7 +14,6 @@ import "../styles/register.css"
 const useStyles = makeStyles((theme) => ({
     leftBox : {
         backgroundColor: "#6fb091",
-        border: "1px solid #20393a",
         width: "50%",
         height: "100vh"
     },
@@ -35,11 +34,11 @@ function RegisterPage() {
                 <Box  className={[classes.leftBox, "leftBox"]}></Box>
 
                 <Box className={classes.rightBox}>
-                    <Link variant="contained">Sign In Instead</Link>
+                    <Link to="/login" variant="contained">Sign In Instead</Link>
                     <h1>Join the Community</h1>
                     <TextField required label="email" />
                     <TextField required type="password" label="Password" />
-                    <TextField required type="password" label="re-type password"/>
+                    <TextField required type="password" label="Confirm password"/>
                     <Button type="default">Submit</Button>
                 </Box>
             </Box>

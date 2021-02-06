@@ -1,0 +1,8 @@
+body {
+    background-color: #E9E5DB;
+}
+@media (max-width: 850px) {
+    .leftBox {
+      display: none;
+    }
+  }
