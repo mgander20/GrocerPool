@@ -22,14 +22,13 @@ router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
     successRedirect: '/api/users/login-success',
     failureRedirect: '/api/users/login-failure',
-    failureFlash: true,
   })(req, res, next);
 });
 
 // register form post
 router.post('/register', async (req, res) => {
   const errors = [];
-
+  console.log(req.body.password);
   if (req.body.password != req.body.password2) {
     errors.push({ text: 'Passwords do not match' });
   }
@@ -48,10 +47,7 @@ router.post('/register', async (req, res) => {
     });
   } else {
     let user = await User.findOne({ email: req.body.email });
-    if (user) {
-      req.flash('error_msg', 'email already registered');
-      res.redirect('/users/register');
-    } else {
+    if (!user) {
       const newUser = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
