@@ -1,9 +1,13 @@
 import React from 'react'
+import { NavbarPublic } from '../components/Navbar'
+
+// CSS
+
 
 function WelcomePage() {
-
     return (
         <div>
+            <NavbarPublic />
             <h1>Welcome Page</h1>
 
             <p>Can't go out to do your Grocery ? </p>

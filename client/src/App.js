@@ -15,6 +15,7 @@ import Home from './pages/Home';
 import WelcomePage from './pages/WelcomePage';
 
 // Components
+import { NavbarLoggedIn, NavbarPublic } from "./components/Navbar";
 
 // Modules 
 import { AppContext } from "./State"
@@ -23,9 +24,9 @@ import { AppContext } from "./State"
 
 const AuthRoutes = () => (
   <Switch>
-    <Route component={WelcomePage} path="/" exact />
-    <Route component={LoginPage} path="/login" exact />
-    <Route component={RegisterPage} path="/register" exact />
+      <Route component={WelcomePage} path="/" exact />
+      <Route component={LoginPage} path="/login" exact />
+      <Route component={RegisterPage} path="/register" exact />
   </Switch>
 )
 
