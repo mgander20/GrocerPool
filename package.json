@@ -14,12 +14,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@astrajs/collections": "0.0.9",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.3",
     "express": "^4.17.1",
     "express-validator": "^6.9.2",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.11.15"
+    "mongoose": "^5.11.15",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
