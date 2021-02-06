@@ -2,7 +2,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
-const users = require('../config/astra')
+const users = require('../config/astra');
 // Load user model
 
 const router = express.Router();
@@ -64,10 +64,10 @@ router.post('/register', async (req, res) => {
           if (err) throw err;
           newUser.password = hash;
           try {
-            let saveUser = await newUser.save() //when fail its goes to catch
+            let saveUser = await newUser.save(); //when fail its goes to catch
             console.log(saveUser); //when success it print.
             console.log('after save');
-            res.json({msg: "User Saved"})
+            res.json({ msg: 'User Saved' });
           } catch (err) {
             console.log('err' + err);
             res.status(500).send(err);
@@ -81,7 +81,7 @@ router.post('/register', async (req, res) => {
 // Logout user
 router.get('/logout', (req, res) => {
   req.logout();
-  res.json({msg: "logged out"});
+  res.json({ msg: 'logged out' });
 });
 
 module.exports = router;
