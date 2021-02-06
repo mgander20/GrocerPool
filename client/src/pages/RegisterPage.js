@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from "react-router-dom";
 
 // material Ui Shit
@@ -10,6 +10,8 @@ import TextField from '@material-ui/core/TextField';
 
 // CSS
 import "../styles/register.css"
+
+import { AppContext } from "../State"
 
 const useStyles = makeStyles((theme) => ({
     leftBox : {
@@ -24,24 +26,41 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-function RegisterPage() {
-
+function RegisterPage({ history }) {
+    const { state, dispatch } = useContext(AppContext)
     const classes = useStyles();
+
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [confirmPassword, setConfirmPassword] = useState("")
+    const [phoneNumber, setPhoneNumber] = useState("")
     const [submit, setSubmit] = useState(false)
     const [error, setError] = useState(false)
 
-
     const doRegistration = () => {
-        console.log(email)
-        console.log(password)
-        console.log(confirmPassword)
-        console.log(email)
+        const user = {
+            firstName,
+            lastName,
+            password,
+            email,
+            phoneNumber
+        }
+        console.log("USER REGISTRATION PAYLOAD -->", user)
+
+        // TODO: API STUFF
+        // if(email === "test" && password=== "test"){
+            history.push("/")
+            dispatch({
+                type: "doLogin"
+            })
+        // } else {
+        //     setError(true)
+        // }
+
     }
 
-    const validInput = !(email && ( password === confirmPassword))
+    const validInput = !(firstName || lastName || email || password )
 
     return (
         <Container maxWidth="lg">
@@ -53,7 +72,17 @@ function RegisterPage() {
                     <h1>Join the Community</h1>
                     <TextField 
                         required 
-                        label="email" 
+                        label="First Name" 
+                        onChange={(e)=> { setFirstName(e.target.value) }}
+                        />
+                    <TextField 
+                        required 
+                        label="Last Name" 
+                        onChange={(e)=> { setLastName(e.target.value) }}
+                        />
+                    <TextField 
+                        required 
+                        label="Email" 
                         onChange={(e)=> { setEmail(e.target.value) }}
                         />
                     <TextField 
@@ -63,10 +92,8 @@ function RegisterPage() {
                         onChange={(e)=> { setPassword(e.target.value) }}
                         />
                     <TextField 
-                        required 
-                        type="password" 
-                        label="re-type password"
-                        onChange={(e)=> { setConfirmPassword(e.target.value) }}
+                        label="Phone Number"
+                        onChange={(e)=> { setPhoneNumber(e.target.value) }}
                         />
                     <Button 
                         disabled={validInput} 
