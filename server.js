@@ -1,5 +1,6 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const astra = require('./config/astra')
 // intialize Express
 const app = express();
 
@@ -7,7 +8,10 @@ const app = express();
 connectDB();
 
 // requests
-app.get('/', (req, res) => res.json({ msg: 'Response' }));
+app.get('/', (req, res) => {
+  astra.connectClient()
+  res.json({ msg: 'Response' })
+});
 
 // routes
 app.use('/api/users', require('./routes/users'));
