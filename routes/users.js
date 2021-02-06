@@ -22,7 +22,6 @@ router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
     successRedirect: '/api/users/login-success',
     failureRedirect: '/api/users/login-failure',
-    failureFlash: true,
   })(req, res, next);
 });
 
@@ -48,10 +47,7 @@ router.post('/register', async (req, res) => {
     });
   } else {
     let user = await User.findOne({ email: req.body.email });
-    if (user) {
-      req.flash('error_msg', 'email already registered');
-      res.redirect('/users/register');
-    } else {
+    if (!user) {
       const newUser = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
