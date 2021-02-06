@@ -16,4 +16,6 @@ const connectClient = async () => {
   }
 };
 
+connectClient()
+
 module.exports = connectClient;
