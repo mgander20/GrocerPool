@@ -1,6 +1,5 @@
 import React from 'react'
-import { NavbarPublic } from '../components/Navbar'
-
+import { Link } from "react-router-dom";
 // CSS
 import "../styles/welcome.css";
 
@@ -47,6 +46,9 @@ const useStyles = makeStyles((theme) => ({
         height: 200,
         width: 200,
       },
+    link: {
+        textDecoration: 'none'
+    }
   }));
 
 const CARD_DATA = [
@@ -57,7 +59,7 @@ const CARD_DATA = [
     { title: "Going to Metro", img: "" },
 ]
 
-function WelcomePage() {
+function WelcomePage({ useHistory }) {
     const classes = useStyles();
 
     return (
@@ -66,14 +68,19 @@ function WelcomePage() {
             <Box display="flex" justifyContent="space-between">
                 <h1>appname</h1>
                 <Box m={2}>
-                    <Button
-                        className={classes.btn2}
-                        variant="contained"
-                    >Login</Button>
-                    <Button
-                        className={classes.btn3}
-                        variant="contained"
-                    >Register</Button>
+
+                    <Link className={classes.link} to="/login">
+                        <Button
+                            className={classes.btn2}
+                            variant="contained"
+                        >Login</Button>
+                    </Link>
+                    <Link className={classes.link} to="/register">
+                        <Button
+                            className={classes.btn3}
+                            variant="contained"
+                        >Register</Button>
+                    </Link>
                 </Box>
             </Box>
 
@@ -83,7 +90,9 @@ function WelcomePage() {
                     <p className="header-sub">
                         COVID-Friendly Grocery Shopping through community partnership
                     </p>
-                    <Button className={classes.btn} variant="contained">Get Started Today</Button>
+                    <Link className={classes.link} to="/login">
+                        <Button className={classes.btn} variant="contained">Get Started Today</Button>
+                    </Link>
                 </div>
                 <img className="welcome-image" src={Image}></img>
             </Box>
