@@ -14,7 +14,6 @@ let reducer = (state, action) => {
         case "setAppName": {
             return {...state, appName: action.payload.appName}
         }
-
     }
 }
 
