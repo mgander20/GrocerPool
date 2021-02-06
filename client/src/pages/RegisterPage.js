@@ -35,6 +35,12 @@ function RegisterPage({ history }) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [phoneNumber, setPhoneNumber] = useState("")
+    const [password2, setPassword2] = useState()
+    const [city, setCity] = useState()
+    const [province, setProvince] = useState()
+    const [postalCode, setPostalCode] = useState()
+    const [address, setAddress] = useState()
+
     const [submit, setSubmit] = useState(false)
     const [error, setError] = useState(false)
 
@@ -44,7 +50,11 @@ function RegisterPage({ history }) {
             lastName,
             password,
             email,
-            phoneNumber
+            phoneNumber,
+            address,
+            city,
+            province,
+            postalCode
         }
         console.log("USER REGISTRATION PAYLOAD -->", user)
 
@@ -60,7 +70,7 @@ function RegisterPage({ history }) {
 
     }
 
-    const validInput = !(firstName || lastName || email || password )
+    const validInput = !(firstName && lastName && email && ( password === password2) )
 
     return (
         <Container maxWidth="lg">
@@ -92,8 +102,31 @@ function RegisterPage({ history }) {
                         onChange={(e)=> { setPassword(e.target.value) }}
                         />
                     <TextField 
+                        required 
+                        type="password" 
+                        label="Re-type password" 
+                        onChange={(e)=> { setPassword2(e.target.value) }}
+                        />
+                    <TextField 
                         label="Phone Number"
                         onChange={(e)=> { setPhoneNumber(e.target.value) }}
+                        />
+                    <TextField 
+                        label="Address" 
+                        onChange={(e)=> { setAddress(e.target.value) }}
+                        />
+                    <TextField 
+                        label="City" 
+                        onChange={(e)=> { setCity(e.target.value) }}
+                        />
+                    <TextField 
+                        label="Province" 
+                        onChange={(e)=> { setProvince(e.target.value) }}
+                        />
+
+                    <TextField 
+                        label="Postal Code" 
+                        onChange={(e)=> { setPostalCode(e.target.value) }}
                         />
                     <Button 
                         disabled={validInput} 
