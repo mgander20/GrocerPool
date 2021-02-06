@@ -59,7 +59,7 @@ const CARD_DATA = [
     { title: "Going to Metro", img: "" },
 ]
 
-function WelcomePage({ useHistory }) {
+function WelcomePage() {
     const classes = useStyles();
 
     return (
@@ -68,7 +68,6 @@ function WelcomePage({ useHistory }) {
             <Box display="flex" justifyContent="space-between">
                 <h1>appname</h1>
                 <Box m={2}>
-
                     <Link className={classes.link} to="/login">
                         <Button
                             className={classes.btn2}
