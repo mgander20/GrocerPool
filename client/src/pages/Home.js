@@ -119,7 +119,7 @@ function Home() {
     )
 }
 
-function ProfileCard() {
+export function ProfileCard() {
     const classes = useStyles();
 
     return(
@@ -138,7 +138,7 @@ function ProfileCard() {
     )
 }
 
-function ProfileCardTwo() {
+export function ProfileCardTwo() {
     const classes = useStyles();
 
     return(
@@ -157,7 +157,7 @@ function ProfileCardTwo() {
     )
 }
 
-function NotificationBox() {
+export function NotificationBox() {
     const classes = useStyles();
 
     return(
@@ -171,7 +171,7 @@ function NotificationBox() {
     )
 }
 
-function BottomBanner() {
+export function BottomBanner() {
     const classes = useStyles();
 
     return (
