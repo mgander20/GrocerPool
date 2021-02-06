@@ -20,22 +20,27 @@ import WelcomePage from './pages/WelcomePage';
 import { AppContext } from "./State"
 import ProfilePage from './pages/ProfilePage';
 import ChatPage from './pages/ChatPage';
-import AddPage from './pages/AddPage';
+import AddGrocery from './pages/AddGrocery';
+import OrderPage from './pages/OrderPage';
+import AddTripPage from './pages/AddTripPage';
 
 const AuthRoutes = () => (
   <Switch>
       <Route component={WelcomePage} path="/" exact />
-      <Route component={LoginPage} path="/login" exact />
-      <Route component={RegisterPage} path="/register" exact />
+      <Route component={LoginPage} path="/login" />
+      <Route component={RegisterPage} path="/register" />
   </Switch>
 )
 
 const AppRoutes = () => (
   <Switch>
     <Route component={Home} path="/" exact />
-    <Route component={ProfilePage} path="/profile" exact />
-    <Route component={ChatPage} path="/chat" exact />
-    <Route component={AddPage} path="/add" exact />
+    <Route component={OrderPage} path="/order" />
+    <Route component={ProfilePage} path="/profile" />
+    <Route component={ChatPage} path="/chat" />
+    <Route component={AddGrocery} path="/add-grocery" />
+    <Route component={AddTripPage} path="/add-trip" />
+
   </Switch>
 )
 

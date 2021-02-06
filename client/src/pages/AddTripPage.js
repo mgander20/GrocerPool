@@ -1,11 +1,11 @@
 import React from 'react'
 
-function AddPage() {
+function AddTripPage() {
     return (
         <div>
-            Add Page
+            Adding Trips
         </div>
     )
 }
 
-export default AddPage
+export default AddTripPage

@@ -64,7 +64,7 @@ function NavbarLoggedIn() {
                         className={classes.btn3}
                     >Chat</Button>
                 </Link>
-                <Link className={classes.link} to="/add">
+                <Link className={classes.link} to="/order">
                     <Button
                         className={classes.btn2}
                     >Create++</Button>
