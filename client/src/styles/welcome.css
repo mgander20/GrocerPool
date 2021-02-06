@@ -1,0 +1,26 @@
+.welcome-body {
+  padding-top: 150px;
+  padding-bottom: 50px;
+}
+
+.header-main {
+  font-size: xx-large;
+  font-weight: 900;
+}
+.header-sub {
+  font-size: x-large;
+  font-weight: 300;
+  max-width: 450px;
+  padding: 10px 10px 20px 0px;
+}
+
+.welcome-image {
+  max-width: 50%;
+  padding: 0px 0px 0px 50px;
+}
+
+@media (max-width: 1350px) {
+  .welcome-image {
+    display: none;
+  }
+}
