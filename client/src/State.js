@@ -5,7 +5,7 @@ let AppContext = createContext({})
 const initialState = {
     appName : "Grocery Partners",
     // user : JSON.parse(localStorage.getItem("currentUser"))
-    user : true
+    user : false
 
 }
 
