@@ -15,6 +15,7 @@
 .profile-img-notification {
   width: 100px;
   border-radius: 100px;
+  margin: 10px 20px -20px 0px;
 }
 
 .header-two {
@@ -31,8 +32,19 @@
   padding: 0;
   margin: 0;
 }
+
 .body-text-three {
   font-size: 14px;
   padding: 0px 0px 20px 0px;
   margin: 0;
+}
+
+.body-text-four {
+  height: 20px;
+  padding-top: 30px;
+}
+
+.notification-card-body {
+  display: flex;
+  justify-content: flex-start;
 }

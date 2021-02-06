@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center'
     },
     gridList: {
-        height: "294px",
+        height: "319px",
         border: "1px solid grey",
     }, 
     notificationBody: {
@@ -46,7 +46,12 @@ const useStyles = makeStyles((theme) => ({
     },
     notificationCard: {
         display: "flex",
-        flexDirection: "row"
+        flexDirection: "row",
+        justifyContent: "space-between"
+    },
+    btnViewAll: {
+        backgroundColor: 'rgba(223, 230, 237, 0.8)',
+        margin: '20px 0px 0px 40px',
     }
 }))
 
@@ -114,7 +119,7 @@ function Home() {
                     </Box>
                     ))
                 }
-                <Button color="primary">View All</Button>
+                <Button className={classes.btnViewAll} color="primary">View All</Button>
             </Box>
 
         </Container>
@@ -139,9 +144,11 @@ function NotificationBox() {
 
     return(
         <Box className={classes.notificationCard}>
-            <img className="profile-img-notification" src="https://i.imgur.com/tLKjtrE.png"></img>
-            <p className="header-two">John Doe</p>
-            <p className="body-text-two">30 Minutes</p>
+            <div className="notification-card-body">
+                <img className="profile-img-notification" src="https://i.imgur.com/tLKjtrE.png"></img>
+                <p className="body-text-four">John Doe</p>
+            </div>
+            <p className="body-text-four">30 Minutes</p>
         </Box>
     )
 }

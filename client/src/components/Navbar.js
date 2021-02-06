@@ -67,7 +67,7 @@ function NavbarLoggedIn() {
                 <Link className={classes.link} to="/add">
                     <Button
                         className={classes.btn2}
-                    >Create Grocery List</Button>
+                    >Create++</Button>
                 </Link>
             </Box>
         </Box>
