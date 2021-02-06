@@ -2,7 +2,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
-
+const users = require('../config/astra')
 // Load user model
 
 const router = express.Router();
@@ -81,7 +81,7 @@ router.post('/register', async (req, res) => {
 // Logout user
 router.get('/logout', (req, res) => {
   req.logout();
-  res.json({msg: "logged out"})
+  res.json({msg: "logged out"});
 });
 
 module.exports = router;
