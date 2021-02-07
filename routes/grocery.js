@@ -50,8 +50,8 @@ router.get('/getGroceries', async (req, res) => {
   try {
     groceryCollection = await astra('grocery');
     console.log(groceryCollection);
-    groceryCollection.find({}).then((res) => {
-      console.log(res);
+    groceryCollection.find({}).then((items) => {
+      res.send(items)
     });
   } catch (e) {
     console.log(e);

@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Container, Button, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { NavbarLoggedIn } from '../components/Navbar';
 import { ItemGrocery } from '../components/ItemGrocery';
+import groceryService from '../services/grocery';
+import axios from 'axios';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,6 +47,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function AddGrocery() {
+
+  // States
+  const [groceries, setGroceries] = useState('')
+
+
+  // useEffects
+
+  // On Mount Effect
+  useEffect(() => {
+    groceryService.getAll().then(groceries => {
+      setGroceries(groceries)
+      console.log('GROCERIES', groceries)
+    })
+  }, [])
+
   const classes = useStyles();
 
   return (
