@@ -208,7 +208,7 @@ export function BottomBanner() {
       <Box pt={8}>
         <img
           className="profile-img-notification"
-          src="https://st2.depositphotos.com/6572538/10193/v/950/depositphotos_101937050-stock-illustration-tobacco-tree-plants-and-flowers.jpg"
+          src=""
         ></img>
         <p style={{ padding: '15px 10px 10px 0px' }}>Copyright 2021</p>
       </Box>
