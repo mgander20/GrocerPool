@@ -48,9 +48,9 @@ function LoginPage({ history }) {
 
   const doLogin = async () => {
     const logInData = { email, password };
-    console.log(logInData);
+
     try {
-      const loginRes = await axios.post(
+      const logInRes = await axios.post(
         'http://localhost:5000/api/users/login',
         logInData,
         {
@@ -59,13 +59,14 @@ function LoginPage({ history }) {
           },
         }
       );
-      if (logInData.data.msg == 'login success') {
+      if (logInRes.data) {
         localStorage.setItem('uOttawaHackUser', email);
+
         history.push('/');
 
         dispatch({
           type: 'doLogin',
-          currentUser: email,
+          currentUser: logInRes.data,
         });
       } else {
         setError(true);
@@ -108,9 +109,6 @@ function LoginPage({ history }) {
           <Button disabled={validInput} onClick={doLogin} type="default">
             Login
           </Button>
-          <Box>
-            <p>Test User: test@test.com & pass: hack</p>
-          </Box>
           {error ? <h2>WRONG PASSWORD</h2> : null}
         </Box>
       </Box>

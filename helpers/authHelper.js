@@ -1,7 +1,8 @@
 module.exports = {
   ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
+    res.json({ test: 'test' });
+    /* if (req.isAuthenticated()) {
       return next();
-    }
+    } */
   },
 };

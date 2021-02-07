@@ -2,6 +2,8 @@ const express = require('express');
 const astra = require('./config/astra');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+const { ensureAuthenticated } = require('./helpers/authHelper');
 
 // intialize Express
 const app = express();
@@ -42,8 +44,8 @@ app.use(passport.initialize());
 app.use(bodyParser.json());
 
 // requests
-app.get('/', (req, res) => {
-  res.json({ msg: 'Response' });
+app.get('/api/auth', ensureAuthenticated, (req, res) => {
+  res.json({ msg: 'authenticated' });
 });
 
 // routes

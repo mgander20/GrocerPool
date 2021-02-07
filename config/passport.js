@@ -18,13 +18,24 @@ module.exports = async function (passport) {
         },
         async (email, password, done) => {
           try {
-            console.log(`email:${email}   password:${password}`);
             // match user
             user = await usersCollection.findOne({ email: { $eq: email } });
-            console.log(`user = ${user}`);
             if (!user) {
               return done(null, false, { message: 'No user found' });
             }
+            /* const returnUser = {
+              email: user.email,
+              password: user.password,
+              firstName: user.firstName,
+              lastName: user.lastName,
+              phoneNumber: user.phoneNumber,
+              lat: user.lat,
+              lon: user.lon,
+              address: user.address,
+              postalCode: user.postalCode,
+              provinceCode: user.provinceCode,
+              city: user.city,
+            } */
             // match password
             bcrypt.compare(password, user.password, (err, isMatch) => {
               if (err) throw err;
@@ -42,10 +53,10 @@ module.exports = async function (passport) {
 
     // serialize
     passport.serializeUser(function (user, done) {
-      done(null, user);
+      done(null, user.id);
     });
 
-    passport.deserializeUser(function (user, done) {
+    passport.deserializeUser(function (id, done) {
       done(null, user);
     });
   } catch (e) {
