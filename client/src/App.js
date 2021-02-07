@@ -1,15 +1,5 @@
 import './App.css';
 import React, { useState, useContext } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-  Link,
-} from 'react-router-dom';
-import dotenv1 from 'dotenv';
-const dotenv = dotenv1.config();
-
 // Custom Pages
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -26,6 +16,16 @@ import AddGrocery from './pages/AddGrocery';
 import OrderPage from './pages/OrderPage';
 import AddTripPage from './pages/AddTripPage';
 import ConfirmPage from './pages/ConfirmPage';
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+  Link,
+} from 'react-router-dom';
+import dotenv1 from 'dotenv';
+const dotenv = dotenv1.config();
 
 const AuthRoutes = () => (
   <Switch>
