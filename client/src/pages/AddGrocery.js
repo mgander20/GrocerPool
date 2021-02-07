@@ -78,7 +78,7 @@ function AddGrocery({ history }) {
   return (
     <Container maxWidth="lg" className={classes.root}>
       <NavbarLoggedIn />
-      <CategoryBox />
+      {/* <CategoryBox /> */}
       <Box display="flex" flexDirection="row">
         <Container className={classes.leftSideBody} maxWidth="lg">
           <Grid item xs={12}>
