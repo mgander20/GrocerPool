@@ -74,73 +74,6 @@ const CARD_DATA = [
 ];
 
 function WelcomePage() {
-<<<<<<< HEAD
-    const classes = useStyles();
-
-    return (
-        <>
-        <Container maxWidth="lg" className={classes.root}>
-            <Box display="flex" justifyContent="space-between">
-                <h1>appname</h1>
-                <Box m={2}>
-                    <Link className={classes.link} to="/login">
-                        <Button
-                            className={classes.btn2}
-                            variant="contained"
-                        >Login</Button>
-                    </Link>
-                    <Link className={classes.link} to="/register">
-                        <Button
-                            className={classes.btn3}
-                            variant="contained"
-                        >Register</Button>
-                    </Link>
-                </Box>
-            </Box>
-
-            
-
-            <Box  display="flex" justifyContent="space-around" className="welcome-body">
-                <div>
-                    <h1 className="header-main">Welcome</h1>
-                    <p className="header-sub">
-                        COVID-Friendly Grocery Shopping through community partnership
-                    </p>
-                    <Link className={classes.link} to="/register">
-                        <Button className={classes.btn} variant="contained">Get Started Today</Button>
-                    </Link>
-                </div>
-                <img className="welcome-image" src={Image}></img>
-            </Box>
-        </Container>
-
-        <Box  className={classes.bodyTwo} display="flex" justifyContent="space-around" className="welcome-body">
-                <div>
-                    <h1 className="header-body">Our Mission</h1>
-                    <p className="header-sub">
-                        Reduce the contact risk of COVID-19 by decreasing exposure of frequent grocery shoppers. We encourage 
-                        clients to collaborate and take turns grocery shopping. Our app makes this much easier, with the ability
-                        customize shopping lists every week, price estimates, and private messaging! We can pair you up with 
-                        friends in your area and even accomodate urgent grocery needs. Whether you need groceries today or next week, 
-                        we've got your back!
-                    </p>
-                </div>
-            </Box>
-
-        <Container className={classes.bodyTwo} maxWidth="lg">
-        <h1 className="header-body">How it Works</h1>
-            <Grid item xs={12}>
-                <Grid container justify="center" spacing={5}>
-                {CARD_DATA.map((item) => (
-                    <ItemCard key={item} item={item}/>
-                ))}
-                </Grid>
-            </Grid>
-        </Container>
-
-        </>
-    )
-=======
   const classes = useStyles();
 
   return (
@@ -213,7 +146,6 @@ function WelcomePage() {
       </Container>
     </>
   );
->>>>>>> 405cdc88e6e402613dd3485bab3bde50f2f53689
 }
 
 export default WelcomePage;
