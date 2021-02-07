@@ -7,6 +7,7 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import axios from 'axios';
 
 // CSS
 import '../styles/register.css';
@@ -56,17 +57,27 @@ function RegisterPage({ history }) {
       province,
       postalCode,
     };
+    // send request to backend with user json
     console.log('USER REGISTRATION PAYLOAD -->', user);
 
-    // TODO: API STUFF
-    // if(email === "test" && password=== "test"){
-    history.push('/');
-    dispatch({
-      type: 'doLogin',
-    });
-    // } else {
-    //     setError(true)
-    // }
+    try {
+      const registerRes = axios.post(
+        'http://localhost:5000/api/users/register',
+        user,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      history.push('/');
+      dispatch({
+        type: 'doLogin',
+        payload: user,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const validInput = !(
