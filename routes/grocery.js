@@ -12,17 +12,27 @@ router.get('/buildDb', async (req, res) => {
       `https://api.spoonacular.com/food/ingredients/search?apiKey=edcf4ecd48484150bc7d090ea893b937&query=a&number=1000&offset=0`
     );
     console.log(jsonRes.data.results);
-    for (item in jsonRes.data.results) {
+    for (let i = 0; i < jsonRes.data.results.length; i++) {
       const newItem = {
-        name: item.name,
-        image: `https://spoonacular.com/cdn/ingredients_250x250/${item.name}.jpg`,
+        name: jsonRes.data.results[i].name,
+        image: `https://spoonacular.com/cdn/ingredients_250x250/${jsonRes.data.results[i].image}.jpg`,
       };
+      console.log(newItem);
 
       // ADD TO DB
     }
   } catch (error) {
     console.log(error);
   }
+});
+
+router.get('/item', (req, res) => {
+  const item = req.query.item;
+  const imageUrl = req.query.image;
+  res.json({
+    item,
+    image,
+  });
 });
 
 module.exports = router;
