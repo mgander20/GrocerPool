@@ -4,12 +4,9 @@ const passport = require('passport');
 const astra = require('../config/astra');
 const axios = require('axios');
 
-// Load user model
-
 const router = express.Router();
 
 // collection definition
-
 // const connectToUsers = async () => {
 //   let users = null;
 //   try {
