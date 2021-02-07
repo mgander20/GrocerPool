@@ -11,12 +11,12 @@
 5. cd back to the root directory and run `npm run dev` to start up both the React app and the Node backend server.
 
 ##.env
-ASTRA_DB_ID='8a52681b-0249-48e6-a0c8-fd0516d03965'
-ASTRA_DB_REGION='us-east1'
-ASTRA_DB_USERNAME='hacker'
-ASTRA_DB_KEYSPACE='app'
-ASTRA_DB_PASSWORD='123123123'
-ASTRA_AUTHORIZATION_TOKEN='c94f24fe-e011-4a42-ac03-ed74a3384888'
-LOCATION_KEY='prj_test_pk_39f450eec95125cc739660fa9e9a4382881a6921'
+ASTRA_DB_ID='8a52681b-0249-48e6-a0c8-fd0516d03965'<br>
+ASTRA_DB_REGION='us-east1' <br>
+ASTRA_DB_USERNAME='hacker' <br>
+ASTRA_DB_KEYSPACE='app' <br>
+ASTRA_DB_PASSWORD='123123123' <br>
+ASTRA_AUTHORIZATION_TOKEN='c94f24fe-e011-4a42-ac03-ed74a3384888'<br>
+LOCATION_KEY='prj_test_pk_39f450eec95125cc739660fa9e9a4382881a6921'<br>
 
 
