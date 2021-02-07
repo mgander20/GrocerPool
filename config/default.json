@@ -1,8 +1,0 @@
-{
-  "ASTRA_DB_ID": "8a52681b-0249-48e6-a0c8-fd0516d03965",
-  "ASTRA_DB_REGION": "us-east1",
-  "ASTRA_DB_USERNAME": "hacker",
-  "ASTRA_DB_KEYSPACE": "app",
-  "ASTRA_DB_PASSWORD": "ottawahacker",
-  "ASTRA_AUTHORIZATION_TOKEN": "c94f24fe-e011-4a42-ac03-ed74a3384888"
-}
