@@ -50,8 +50,24 @@ router.get('/getGroceries', async (req, res) => {
   try {
     groceryCollection = await astra('grocery');
     console.log(groceryCollection);
-    // find apple
     groceryCollection.find({}).then((res) => {
+      console.log(res);
+    });
+  } catch (e) {
+    console.log(e);
+    console.error('Could not connect to the collection model on Astra.');
+  }
+});
+
+// pull all from grocery db
+router.get('/getGrocery', async (req, res) => {
+  // create collection
+  let groceryCollection = null;
+  try {
+    groceryCollection = await astra('grocery');
+    console.log(groceryCollection);
+    // find apple
+    groceryCollection.find({ name: { $id: 'apple' } }).then((res) => {
       console.log(res);
     });
   } catch (e) {
