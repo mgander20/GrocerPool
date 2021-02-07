@@ -9,7 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-
+import axios from 'axios';
 //CSS
 import '../styles/login.css';
 
@@ -46,20 +46,34 @@ function LoginPage({ history }) {
 
   const validInput = !(email && password);
 
-  const doLogin = () => {
-    if (email === 'test@test.com' && password === 'hack') {
-      console.log('SEND THESE TO POST', email, password);
+  const doLogin = async () => {
+    const logInData = { email, password };
+    console.log(logInData);
+    try {
+      const loginRes = await axios.post(
+        'http://localhost:5000/api/users/login',
+        logInData,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      if (logInData.data.msg == 'login success') {
+        localStorage.setItem('uOttawaHackUser', email);
+        history.push('/');
 
-      localStorage.setItem('uOttawaHackUser', email);
-      history.push('/');
-      dispatch({
-        type: 'doLogin',
-        currentUser: email,
-      });
-    } else {
-      setError(true);
-      setEmail('');
-      setPassword('');
+        dispatch({
+          type: 'doLogin',
+          currentUser: email,
+        });
+      } else {
+        setError(true);
+        setEmail('');
+        setPassword('');
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
   return (
