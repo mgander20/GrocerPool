@@ -61,9 +61,6 @@ function LoginPage({ history }) {
       );
       if (logInRes.data) {
         localStorage.setItem('uOttawaHackUser', email);
-        setTimeout(() => {
-          console.log('World!');
-        });
 
         history.push('/');
 

@@ -14,9 +14,16 @@ let reducer = (state, action) => {
       return { ...state, appName: action.payload.appName };
     }
     case 'doLogin': {
+      console.log(`Action payload: ${action}`);
       return {
         ...state,
         user: action.payload,
+      };
+    }
+    case 'logout': {
+      return {
+        ...state,
+        user: null,
       };
     }
   }

@@ -155,8 +155,7 @@ router.post('/getUser', async (req, res) => {
 // Logout user
 router.get('/logout', (req, res) => {
   req.logout();
-  res.json({ msg: 'logged out' });
-  res.status(301).redirect('http://localhost:3000/');
+  res.redirect('http://localhost:3000/');
 });
 
 module.exports = router;

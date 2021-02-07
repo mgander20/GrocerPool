@@ -12,6 +12,9 @@ import { Link } from 'react-router-dom';
 // CSS
 import '../styles/shared.css';
 import '../styles/welcome.css';
+const logoutClick = () => {
+  localStorage.removeItem('uOttawaHackUser');
+};
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -67,7 +70,9 @@ function NavbarLoggedIn() {
           className={classes.link}
           href="http://localhost:5000/api/users/logout"
         >
-          <Button className={classes.btn2}>Logout</Button>
+          <Button className={classes.btn2} onClick={logoutClick}>
+            Logout
+          </Button>
         </a>
       </Box>
     </Box>
