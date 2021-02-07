@@ -80,7 +80,7 @@ function WelcomePage() {
     <>
       <Container maxWidth="lg" className={classes.root}>
         <Box display="flex" justifyContent="space-between">
-          <h1>appname</h1>
+          <h1>Grocery Partners</h1>
           <Box m={2}>
             <Link className={classes.link} to="/login">
               <Button className={classes.btn2} variant="contained">

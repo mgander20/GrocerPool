@@ -57,20 +57,28 @@ function RegisterPage({ history }) {
       province,
       postalCode,
     };
-    // send request to backend with user json
-    console.log('USER REGISTRATION PAYLOAD -->', user);
 
     try {
-      if (process.env.NODE_ENV === 'production') {
-        const endpoint = '/api/users/register';
-      } else {
-        const endpoint = `${process.env.REACT_APP_API}/api/users/register`;
-      }
       const registerRes = axios.post(endpoint, user, {
         headers: {
           'Content-Type': 'application/json',
         },
       });
+      if (process.env.NODE_ENV === 'production') {
+        const endpoint = '/api/users/register';
+      } else {
+        const endpoint = `${process.env.REACT_APP_API}/api/users/register`;
+      }
+      const registerRes = axios.post(
+        `${process.env.REACT_APP_API}/api/users/register`,
+        user,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      localStorage.setItem('uOttawaHackUser', email);
       history.push('/');
       dispatch({
         type: 'doLogin',

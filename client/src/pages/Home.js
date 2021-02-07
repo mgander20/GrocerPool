@@ -1,7 +1,8 @@
 import { AppContext } from '../State';
-import React, { useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { NavbarLoggedIn } from '../components/Navbar';
 import { Link } from 'react-router-dom';
+import { getAll } from '../services/user';
 
 import { ORDER_DATA, SHOPPERS_DATA } from '../util/Consts';
 
@@ -79,6 +80,16 @@ function Home({ history }) {
   const classes = useStyles();
 
   const { state, dispatch } = useContext(AppContext);
+  const [users,setUsers] = useState([])
+
+   // On Mount Effect
+   useEffect(() => {
+    getAll().then((response) => {
+      const values = Object.values(response.data);
+      setUsers(values);
+      console.log(values)
+    });
+  }, []);
 
   return (
     <Container maxWidth="lg">
@@ -89,7 +100,7 @@ function Home({ history }) {
       ></img>
 
       <Box className={classes.banner2}>
-        <h1 className="header-main">Welcome to your Dashboard</h1> 
+        <h1 className="header-main">Welcome to your Dashboard</h1>
         <h3>Don't forget to Check Out the Latest Upcoming Orders and Trips!</h3>
         <h3>Update your Grocery List or go Shopping for a Friend.</h3>
       </Box>
@@ -130,7 +141,7 @@ function Home({ history }) {
       </Box>
 
       <img
-        src={Image3} 
+        src={Image3}
         className={classes.banner}
       ></img>
 
