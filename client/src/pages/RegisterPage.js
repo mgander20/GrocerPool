@@ -57,8 +57,6 @@ function RegisterPage({ history }) {
       province,
       postalCode,
     };
-    // send request to backend with user json
-    console.log('USER REGISTRATION PAYLOAD -->', user);
 
     try {
       const registerRes = axios.post(
@@ -70,6 +68,7 @@ function RegisterPage({ history }) {
           },
         }
       );
+      localStorage.setItem('uOttawaHackUser', email);
       history.push('/');
       dispatch({
         type: 'doLogin',
