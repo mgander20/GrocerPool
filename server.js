@@ -2,8 +2,18 @@ const express = require('express');
 const astra = require('./config/astra');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+
 // intialize Express
 const app = express();
+const cors = require('cors')
+
+//use cors to allow cross origin resource sharing
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+  })
+);
 
 // passport config
 require('./config/passport')(passport);
@@ -17,9 +27,16 @@ require('./config/passport')(passport);
 //   }
 // }
 
+// enable cords
+app.use(cors())
+
+
 // middleware
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// passport middleware
+app.use(passport.initialize());
 
 // parse application/json
 app.use(bodyParser.json());

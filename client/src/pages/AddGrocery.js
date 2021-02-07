@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { NavbarLoggedIn } from '../components/Navbar';
 import { ItemGrocery } from '../components/ItemGrocery';
-import groceryService from '../services/grocery';
+import { getAll, submitGroceryList } from '../services/grocery';
 import axios from 'axios';
 
 
@@ -46,23 +46,36 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function AddGrocery() {
+function AddGrocery({ history }) {
 
   // States
-  const [groceries, setGroceries] = useState('')
+  const [groceryItems, setGroceryItems] = useState([])
+  const [groceryCart, setGroceryCart] = useState([])
 
-
+  const isValid = groceryCart.length === 0
   // useEffects
 
   // On Mount Effect
   useEffect(() => {
-    groceryService.getAll().then(groceries => {
-      setGroceries(groceries)
-      console.log('GROCERIES', groceries)
+    getAll().then(response => {
+      const values = Object.values(response.data)
+      setGroceryItems(values)
     })
   }, [])
 
   const classes = useStyles();
+
+  const doSubmitGroceryList = () => {
+    const payload = {
+      userId : localStorage.getItem("uOttawaHackUser"),
+      items : [ "cheese", "deez", "nutz"]
+    }
+    submitGroceryList(payload).then(response => {
+      history.push("/confirm")
+      setGroceryItems([])
+      console.log("SENT, ID ->", response.data)
+    })
+  }
 
   return (
     <Container maxWidth="lg" className={classes.root}>
@@ -72,8 +85,12 @@ function AddGrocery() {
         <Container className={classes.leftSideBody} maxWidth="lg">
           <Grid item xs={12}>
             <Grid container justify="center" spacing={5}>
-              {[1, 2, 3, 4, 5].map((item) => (
-                <ItemGrocery key={item} item={item} />
+              {groceryItems.map((item) => (
+                <ItemGrocery 
+                  key={item} item={item}
+                  setGroceryCart={setGroceryCart}
+                  groceryCart={groceryCart}
+                />
               ))}
             </Grid>
           </Grid>
@@ -83,13 +100,18 @@ function AddGrocery() {
           <Grid item xs={12}>
             <h1 className="header-main">Your Cart</h1>
             <ul>
-              {[1, 2, 3, 4, 5].map((item) => (
-                <li>Hi</li>
+              {groceryCart.map((item) => (
+                <li>
+                  { item.name }
+                </li>
               ))}
             </ul>
           </Grid>
           <Box>
-            <Button variant="" className={classes.btn2}>
+            <Button 
+              onClick={doSubmitGroceryList}
+              disabled={isValid}
+              variant="" className={classes.btn2}>
               Submit List
             </Button>
           </Box>

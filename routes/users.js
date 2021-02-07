@@ -147,6 +147,21 @@ router.get('/getUsers', async (req, res) => {
   });
 });
 
+// Get 1 users
+router.get('/getUser', async (req, res) => {
+  let usersCollection = null;
+  try {
+    usersCollection = await astra('users');
+  } catch (e) {
+    console.log(e);
+    console.error('Could not connect to the collection model on Astra.');
+  }
+
+  usersCollection.find({ email: { $eq: req.body.email } }).then((user) => {
+    res.json(user);
+  });
+});
+
 // Logout user
 router.get('/logout', (req, res) => {
   req.logout();
