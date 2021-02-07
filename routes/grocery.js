@@ -19,7 +19,7 @@ router.get('/buildDb', async (req, res) => {
 
   try {
     jsonRes = await axios.get(
-      `https://api.spoonacular.com/food/ingredients/search?apiKey=edcf4ecd48484150bc7d090ea893b937&query=z&number=100&offset=0`
+      `https://api.spoonacular.com/food/ingredients/search?apiKey=${process.env.GROCERY_KEY}&query=z&number=100&offset=0`
     );
 
     for (let i = 0; i < jsonRes.data.results.length; i++) {
@@ -45,20 +45,35 @@ router.get('/buildDb', async (req, res) => {
 
 // pull all from grocery db
 router.get('/getGroceries', async (req, res) => {
-
   // create collection
   let groceryCollection = null;
   try {
     groceryCollection = await astra('grocery');
+    console.log(groceryCollection);
+    groceryCollection.find({}).then((res) => {
+      console.log(res);
+    });
   } catch (e) {
     console.log(e);
     console.error('Could not connect to the collection model on Astra.');
   }
+});
 
-  // find apple
-  groceryCollection.find({name: {$eq: "zucchini" }}).then(res => {
-    console.log(res)
-  })
-})
+// pull all from grocery db
+router.get('/getGrocery', async (req, res) => {
+  // create collection
+  let groceryCollection = null;
+  try {
+    groceryCollection = await astra('grocery');
+    console.log(groceryCollection);
+    // find apple
+    groceryCollection.find({ name: { $id: 'apple' } }).then((res) => {
+      console.log(res);
+    });
+  } catch (e) {
+    console.log(e);
+    console.error('Could not connect to the collection model on Astra.');
+  }
+});
 
 module.exports = router;
