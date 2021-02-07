@@ -11,7 +11,7 @@ router.get('/buildDb', async (req, res) => {
   // create collection
   let groceryCollection = null;
   try {
-    groceryCollection = await astra('grocery');
+    groceryCollection = await astra('groceries');
   } catch (e) {
     console.log(e);
     console.error('Could not connect to the collection model on Astra.');
@@ -19,14 +19,15 @@ router.get('/buildDb', async (req, res) => {
 
   try {
     jsonRes = await axios.get(
-      `https://api.spoonacular.com/food/ingredients/search?apiKey=${process.env.GROCERY_KEY}&query=z&number=100&offset=0`
+      `https://api.spoonacular.com/food/ingredients/search?apiKey=a4800428da6e43348a3b8c9bbd054070&query=g&number=10&offset=0`
     );
 
     for (let i = 0; i < jsonRes.data.results.length; i++) {
       let name = jsonRes.data.results[i].name;
+      let image = jsonRes.data.results[i].image;
       const newItem = {
         name: name,
-        image: `https://spoonacular.com/cdn/ingredients_250x250/${name}.jpg`,
+        image: `https://spoonacular.com/cdn/ingredients_250x250/${image}`,
       };
 
       // ADD TO DB
@@ -48,12 +49,13 @@ router.get('/getGroceries', async (req, res) => {
   // create collection
   let groceryCollection = null;
   try {
-    groceryCollection = await astra('grocery');
-    console.log(groceryCollection);
-    groceryCollection.find({}).then((items) => {
-      console.log(items)
-      res.send(items)
-    });
+    groceryCollection = await astra('groceries');
+    const items = await groceryCollection.find({});
+    res.send(items)
+    // return {
+    //   statusCode:200,
+    //   body: JSON.stringify(Object.keys(items).map((i) => items[i]))
+    // };
   } catch (e) {
     console.log(e);
     console.error('Could not connect to the collection model on Astra.');
@@ -65,11 +67,11 @@ router.get('/getGrocery', async (req, res) => {
   // create collection
   let groceryCollection = null;
   try {
-    groceryCollection = await astra('grocery');
+    groceryCollection = await astra('groceries');
     console.log(groceryCollection);
     // find apple
-    groceryCollection.find({ name: { $id: 'apple' } }).then((res) => {
-      console.log(res);
+    groceryCollection.find({ name: {$eq:'a'} }).then((data) => {
+      res.json(data)
     });
   } catch (e) {
     console.log(e);

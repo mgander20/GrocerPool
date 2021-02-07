@@ -1,4 +1,4 @@
 curl --request GET \
   --url https://8a52681b-0249-48e6-a0c8-fd0516d03965-us-east1.apps.astra.datastax.com/api/rest/v2/namespaces/app/collections/grocery?page-size=20 \
-  --header "X-Cassandra-Token: 5f8d8bc3-dc42-43fc-b0a4-d3aa13bea8b0" \
+  --header "X-Cassandra-Token: dd147d1c-1b3f-4939-9649-61fe107c5f5a" \
   --header 'Content-Type: application/json'
