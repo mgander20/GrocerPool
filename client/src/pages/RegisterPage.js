@@ -62,7 +62,7 @@ function RegisterPage({ history }) {
 
     try {
       const registerRes = axios.post(
-        'http://localhost:5000/api/users/register',
+        `${process.env.BACKEND_HOST}/api/users/register`,
         user,
         {
           headers: {
