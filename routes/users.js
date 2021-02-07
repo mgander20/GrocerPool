@@ -132,8 +132,8 @@ router.get('/getUsers', async (req, res) => {
     console.error('Could not connect to the collection model on Astra.');
   }
 
-  usersCollection.find({}).then((res) => {
-    console.log(res);
+  usersCollection.find({}).then((data) => {
+    res.send(data)
   });
 });
 
