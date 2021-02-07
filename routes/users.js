@@ -106,6 +106,21 @@ router.post('/register', async (req, res) => {
   }
 });
 
+// Get all users
+router.get('/getUsers', async (req, res) => {
+  let usersCollection = null;
+  try {
+    usersCollection = await astra('users')
+  } catch (e) {
+    console.log(e)
+    console.error("Could not connect to the collection model on Astra.")
+  }
+
+  usersCollection.find({}).then(res => {
+    console.log(res)
+  })
+})
+
 // Logout user
 router.get('/logout', (req, res) => {
   req.logout();

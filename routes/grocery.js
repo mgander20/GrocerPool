@@ -20,7 +20,7 @@ router.get('/buildDb', async (req, res) => {
 
   try {
     jsonRes = await axios.get(
-      `https://api.spoonacular.com/food/ingredients/search?apiKey=edcf4ecd48484150bc7d090ea893b937&query=a&number=100&offset=0`
+      `https://api.spoonacular.com/food/ingredients/search?apiKey=edcf4ecd48484150bc7d090ea893b937&query=z&number=100&offset=0`
     );
 
     for (let i = 0; i < jsonRes.data.results.length; i++) {
@@ -46,7 +46,7 @@ router.get('/buildDb', async (req, res) => {
 });
 
 // pull all from grocery db
-router.get('/groceryDb', async (req, res) => {
+router.get('/getGroceries', async (req, res) => {
 
   // create collection
   let groceryCollection = null;
@@ -58,7 +58,7 @@ router.get('/groceryDb', async (req, res) => {
   }
 
   // find apple
-  groceryCollection.find({ name: { $eq: "apple" } }).then(res => {
+  groceryCollection.find({name: {$eq: "zucchini" }}).then(res => {
     console.log(res)
   })
 })
