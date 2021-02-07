@@ -71,7 +71,6 @@ function AddGrocery({ history }) {
     submitGroceryList(payload).then((response) => {
       history.push('/confirm');
       setGroceryItems([]);
-      console.log('SENT, ID ->', response.data);
     });
   };
 
