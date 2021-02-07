@@ -12,6 +12,10 @@ import GridList from '@material-ui/core/GridList';
 
 //CSS
 import '../styles/shared.css';
+import '../styles/addtrip.css';
+
+// Images
+import Image from '../styles/img/add-trip.png';
 
 // Modules
 import { AppContext } from '../State';
@@ -24,9 +28,10 @@ import { ProfileCardTwo } from '../pages/Home';
 
 const useStyles = makeStyles((theme) => ({
   banner: {
-    width: '600px',
+    width: '80vh',
     padding: '25px',
-    alignSelf: 'left',
+    margin: '5% 20%',
+    alignSelf: 'center',
   },
   body: {
     margin: '60px 0px',
@@ -41,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     overflowX: undefined,
   },
   mainBox: {
-    backgroundColor: 'rgba(44,174,159,0.1)',
+    backgroundColor: '#FFFFFF', 
     height: '70vh',
     textAlign: 'center',
     justifyItems: 'center',
@@ -61,21 +66,23 @@ const useStyles = makeStyles((theme) => ({
     padding: '60px',
   },
   btn2: {
-    backgroundColor: 'rgba(44,174,159,09)',
+    backgroundColor: "#E9E5DB",
     color: 'white',
-    margin: '5px 10px',
+    margin: '10px 0',
     minWidth: '100px',
+    padding: "15px",
   },
   inputGroup: {
     color: 'white',
     marginLeft: '300px',
-    backgroundColor: 'rgba(231, 219, 190, 0.42)',
+    backgroundColor: '#E7BDBE',
     padding: '50px',
     margin: '20px',
     borderRadius: '30px',
   },
   input: {
     margin: 5,
+    backgroundColor: "White",
     borderColor: 'white',
   },
 }));
@@ -183,7 +190,8 @@ function SimilarRequests({ storeTime, storeName, storeLocation, storeDate }) {
     <Box className={classes.body}>
       <Box>
         <h1 className="header-main">Post Successful</h1>
-        <p className="body-text-four">Your going to </p>
+        <h3 className="body-text-four">You are going a Grocery trip! </h3>
+        <div className="date-details">
         <span className="header-sub">
           <b>{storeName}</b>
         </span>
@@ -193,9 +201,10 @@ function SimilarRequests({ storeTime, storeName, storeLocation, storeDate }) {
         <span className="header-sub">
           <b>on {storeDate}</b>
         </span>
+        </div>
         <img
           className={classes.banner}
-          src="https://i.imgur.com/rAGlTtz.png"
+          src={Image}
         ></img>
       </Box>
       <h1 className="header-main">Requested Orders</h1>

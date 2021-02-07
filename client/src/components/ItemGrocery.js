@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 const IMG =
   'https://i.pinimg.com/originals/1b/85/de/1b85de38883996f60285d6a8bf266d01.png';
 
-function ItemGrocery({ item }) {
+function ItemGrocery({ item, setGroceryCart, groceryCart }) {
   const classes = useStyles();
   const [quantity, setQuantity] = React.useState('');
   const [open, setOpen] = React.useState(false);
@@ -56,12 +56,13 @@ function ItemGrocery({ item }) {
   };
 
   return (
+    item.name ? 
     <Grid key={item} item>
       <Paper className={classes.paper}>
-        <img className={classes.img} src={IMG} alt={item.src}></img>
-        <p>Product Title</p>
-        <p className="body-text-three">Product Description</p>
-        <span>$10.0</span>
+        <img className={classes.img} src={item.image} alt={item.image}></img>
+        <p>{item.name}</p>
+        {/* <p className="body-text-three">Product Description</p> */}
+        {/* <span>$10.0</span> */}
 
         <Box display="flex" flexDirection="column">
           <TextField
@@ -73,11 +74,13 @@ function ItemGrocery({ item }) {
               shrink: true,
             }}
           />
-          <Button>Add to Cart</Button>
+          <Button
+            onClick={() => {setGroceryCart([...groceryCart, item])}}
+          >Add to Cart</Button>
         </Box>
       </Paper>
     </Grid>
-  );
-}
+    : null 
+  )}
 
 export { ItemGrocery };

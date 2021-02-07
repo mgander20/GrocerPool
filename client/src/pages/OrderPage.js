@@ -19,13 +19,13 @@ import { NavbarLoggedIn } from '../components/Navbar';
 
 const useStyles = makeStyles((theme) => ({
   mainBox: {
-    backgroundColor: 'rgba(44,174,159,09)',
-    height: '90vh',
+    backgroundColor:'rgba(44,174,159,09)',
+    height: '75vh',
     textAlign: 'center',
   },
   subBox: {
     backgroundColor: 'white',
-    margin: '300px 0px',
+    margin: '20vh 0',
     height: '280px',
     width: '450px',
     padding: '10px',
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '60px',
   },
   btn2: {
-    backgroundColor: 'rgba(44,174,159,09)',
+    backgroundColor: '#20393A',//'rgba(44,174,159,09)',
     color: 'white',
     margin: '5px 10px',
     minWidth: '100px',

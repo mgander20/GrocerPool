@@ -18,9 +18,21 @@ import '../styles/shared.css';
 import '../styles/welcome.css';
 import '../styles/home.css';
 
+// Images
+import Image from '../styles/img/logo.png';
+import Image2 from '../styles/img/user-profile-pic.png';
+import Image3 from '../styles/img/home-bottom-illustration.png';
+
+
 const useStyles = makeStyles((theme) => ({
   banner: {
     width: '100%',
+    textAlign: 'center',
+  },
+  banner2: {
+    width: '100%',
+    textAlign: 'center',
+    marginBottom: '10%',
   },
   bodySub: {
     border: '1px solid grey',
@@ -32,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     overflowX: undefined,
   },
   body: {
-    margin: '60px 0px',
+    margin: '10% 0',
   },
   cardBody: {
     textAlign: 'center',
@@ -48,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
     border: '1px solid grey',
   },
   notificationBody: {
-    backgroundColor: 'rgba(44,174,159,09)',
+    backgroundColor: '#E7BDBE',
     color: 'white',
     padding: '20px',
   },
@@ -75,6 +87,12 @@ function Home({ history }) {
         src="https://i.imgur.com/rYXiycW.jpg"
         className={classes.banner}
       ></img>
+
+      <Box className={classes.banner2}>
+        <h1 className="header-main">Welcome to your Dashboard</h1> 
+        <h3>Don't forget to Check Out the Latest Upcoming Orders and Trips!</h3>
+        <h3>Update your Grocery List or go Shopping for a Friend.</h3>
+      </Box>
 
       <Box className={classes.body}>
         <h1 className="header-main">Scheduled Trips</h1>
@@ -112,7 +130,7 @@ function Home({ history }) {
       </Box>
 
       <img
-        src="https://i.imgur.com/Veg0t8v.png"
+        src={Image3} 
         className={classes.banner}
       ></img>
 
@@ -129,7 +147,7 @@ export function ProfileCard({ history }) {
       <div className="profileCard">
         <img
           className="profile-img"
-          src="https://i.imgur.com/tLKjtrE.png"
+          src="https://i.imgur.com/Ahe5fUo.png"
         ></img>
         <p className="header-two">Tina Smith</p>
         <p className="body-text-two">is going to Shoppers</p>
@@ -138,7 +156,7 @@ export function ProfileCard({ history }) {
       <div className="profileCard-hidden">
         <img
           className="profile-img"
-          src="https://i.imgur.com/tLKjtrE.png"
+          src="https://i.imgur.com/Ahe5fUo.png"
         ></img>
         <Button
           onClick={() => {
@@ -160,7 +178,7 @@ export function ProfileCardTwo({ history }) {
       <div className="profileCard">
         <img
           className="profile-img"
-          src="https://i.imgur.com/Ahe5fUo.png"
+          src= {Image2}//"https://i.imgur.com/Ahe5fUo.png"
         ></img>
         <p className="header-two">Tina Smith</p>
         <p className="body-text-two">needs items from</p>
@@ -169,7 +187,7 @@ export function ProfileCardTwo({ history }) {
       <div className="profileCard-hidden">
         <img
           className="profile-img"
-          src="https://i.imgur.com/Ahe5fUo.png"
+          src={Image2}
         ></img>
         <Button
           onClick={() => {
@@ -191,7 +209,7 @@ export function NotificationBox() {
       <div className="notification-card-body">
         <img
           className="profile-img-notification"
-          src="https://i.imgur.com/tLKjtrE.png"
+          src="https://i.imgur.com/Ahe5fUo.png"
         ></img>
         <p className="body-text-four">Tina Smith</p>
       </div>
@@ -208,7 +226,7 @@ export function BottomBanner() {
       <Box pt={8}>
         <img
           className="profile-img-notification"
-          src="https://st2.depositphotos.com/6572538/10193/v/950/depositphotos_101937050-stock-illustration-tobacco-tree-plants-and-flowers.jpg"
+          src={Image}
         ></img>
         <p style={{ padding: '15px 10px 10px 0px' }}>Copyright 2021</p>
       </Box>

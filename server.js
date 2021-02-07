@@ -4,8 +4,10 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { ensureAuthenticated } = require('./helpers/authHelper');
+
 // intialize Express
 const app = express();
+const cors = require('cors')
 
 //use cors to allow cross origin resource sharing
 app.use(
@@ -26,6 +28,10 @@ require('./config/passport')(passport);
 //     console.error(e)
 //   }
 // }
+
+// enable cords
+app.use(cors())
+
 
 // middleware
 // parse application/x-www-form-urlencoded

@@ -23,6 +23,7 @@ import ChatPage from './pages/ChatPage';
 import AddGrocery from './pages/AddGrocery';
 import OrderPage from './pages/OrderPage';
 import AddTripPage from './pages/AddTripPage';
+import ConfirmPage from './pages/ConfirmPage';
 
 const AuthRoutes = () => (
   <Switch>
@@ -40,6 +41,7 @@ const AppRoutes = () => (
     <Route component={ChatPage} path="/chat" />
     <Route component={AddGrocery} path="/add-grocery" />
     <Route component={AddTripPage} path="/add-trip" />
+    <Route component={ConfirmPage} path="/confirm" />
   </Switch>
 );
 
