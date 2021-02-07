@@ -10,7 +10,7 @@
 4. Copy and paste the `.env` file contents below into a `.env` file in the root directory.
 5. cd back to the root directory and run `npm run dev` to start up both the React app and the Node backend server.
 
-##.env
+## .env
 ASTRA_DB_ID='8a52681b-0249-48e6-a0c8-fd0516d03965'<br>
 ASTRA_DB_REGION='us-east1' <br>
 ASTRA_DB_USERNAME='hacker' <br>
