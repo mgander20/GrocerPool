@@ -12,6 +12,10 @@ import GridList from '@material-ui/core/GridList';
 
 //CSS
 import '../styles/shared.css';
+import '../styles/addtrip.css';
+
+// Images
+import Image from '../styles/img/add-trip.png';
 
 // Modules
 import { AppContext } from '../State';
@@ -24,9 +28,10 @@ import { ProfileCardTwo } from '../pages/Home';
 
 const useStyles = makeStyles((theme) => ({
   banner: {
-    width: '600px',
+    width: '80vh',
     padding: '25px',
-    alignSelf: 'left',
+    margin: '5% 20%',
+    alignSelf: 'center',
   },
   body: {
     margin: '60px 0px',
@@ -185,7 +190,8 @@ function SimilarRequests({ storeTime, storeName, storeLocation, storeDate }) {
     <Box className={classes.body}>
       <Box>
         <h1 className="header-main">Post Successful</h1>
-        <p className="body-text-four">Your going to </p>
+        <h3 className="body-text-four">You are going a Grocery trip! </h3>
+        <div className="date-details">
         <span className="header-sub">
           <b>{storeName}</b>
         </span>
@@ -195,9 +201,10 @@ function SimilarRequests({ storeTime, storeName, storeLocation, storeDate }) {
         <span className="header-sub">
           <b>on {storeDate}</b>
         </span>
+        </div>
         <img
           className={classes.banner}
-          src="https://i.imgur.com/rAGlTtz.png"
+          src={Image}
         ></img>
       </Box>
       <h1 className="header-main">Requested Orders</h1>

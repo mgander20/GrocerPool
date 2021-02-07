@@ -18,6 +18,12 @@ import '../styles/shared.css';
 import '../styles/welcome.css';
 import '../styles/home.css';
 
+// Images
+import Image from '../styles/img/logo.png';
+import Image2 from '../styles/img/user-profile-pic.png';
+import Image3 from '../styles/img/home-bottom-illustration.png';
+
+
 const useStyles = makeStyles((theme) => ({
   banner: {
     width: '100%',
@@ -48,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     border: '1px solid grey',
   },
   notificationBody: {
-    backgroundColor: 'rgba(44,174,159,09)',
+    backgroundColor: '#E7BDBE',
     color: 'white',
     padding: '20px',
   },
@@ -112,7 +118,7 @@ function Home({ history }) {
       </Box>
 
       <img
-        src="https://i.imgur.com/Veg0t8v.png"
+        src={Image3} 
         className={classes.banner}
       ></img>
 
@@ -129,7 +135,7 @@ export function ProfileCard({ history }) {
       <div className="profileCard">
         <img
           className="profile-img"
-          src="https://i.imgur.com/tLKjtrE.png"
+          src="https://i.imgur.com/Ahe5fUo.png"
         ></img>
         <p className="header-two">Tina Smith</p>
         <p className="body-text-two">is going to Shoppers</p>
@@ -138,7 +144,7 @@ export function ProfileCard({ history }) {
       <div className="profileCard-hidden">
         <img
           className="profile-img"
-          src="https://i.imgur.com/tLKjtrE.png"
+          src="https://i.imgur.com/Ahe5fUo.png"
         ></img>
         <Button
           onClick={() => {
@@ -160,7 +166,7 @@ export function ProfileCardTwo({ history }) {
       <div className="profileCard">
         <img
           className="profile-img"
-          src="https://i.imgur.com/Ahe5fUo.png"
+          src= {Image2}//"https://i.imgur.com/Ahe5fUo.png"
         ></img>
         <p className="header-two">Tina Smith</p>
         <p className="body-text-two">needs items from</p>
@@ -169,7 +175,7 @@ export function ProfileCardTwo({ history }) {
       <div className="profileCard-hidden">
         <img
           className="profile-img"
-          src="https://i.imgur.com/Ahe5fUo.png"
+          src={Image2}
         ></img>
         <Button
           onClick={() => {
@@ -191,7 +197,7 @@ export function NotificationBox() {
       <div className="notification-card-body">
         <img
           className="profile-img-notification"
-          src="https://i.imgur.com/tLKjtrE.png"
+          src="https://i.imgur.com/Ahe5fUo.png"
         ></img>
         <p className="body-text-four">Tina Smith</p>
       </div>
@@ -208,7 +214,7 @@ export function BottomBanner() {
       <Box pt={8}>
         <img
           className="profile-img-notification"
-          src=""
+          src={Image}
         ></img>
         <p style={{ padding: '15px 10px 10px 0px' }}>Copyright 2021</p>
       </Box>
