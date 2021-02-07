@@ -34,7 +34,7 @@ const AuthRoutes = () => (
 
 const AppRoutes = () => (
   <Switch>
-    <Route component={Home} path="/ho" exact />
+    <Route component={Home} path="/" exact />
     <Route component={OrderPage} path="/order" />
     <Route component={ProfilePage} path="/profile" />
     <Route component={ChatPage} path="/chat" />
