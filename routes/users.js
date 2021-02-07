@@ -22,21 +22,11 @@ const router = express.Router();
 
 // connectToUsers()
 
-// login success response
-router.get('/login-success', (req, res) => {
-  res.json({ msg: 'login success' });
-});
-
-// login failure response
-router.get('/login-failure', (req, res) => {
-  res.json({ msg: 'login failure' });
-});
-
 // login form post
 router.post('/login', (req, res, next) => {
-  passport.authenticate('local', {
-    successRedirect: '/api/users/login-success',
-    failureRedirect: '/api/users/login-failure',
+  passport.authenticate('local', (empty, user) => {
+    console.log(user);
+    res.json(user);
   })(req, res, next);
 });
 
@@ -147,8 +137,8 @@ router.get('/getUsers', async (req, res) => {
   });
 });
 
-// Get 1 users
-router.get('/getUser', async (req, res) => {
+// Get 1 user
+router.post('/getUser', async (req, res) => {
   let usersCollection = null;
   try {
     usersCollection = await astra('users');
@@ -166,6 +156,7 @@ router.get('/getUser', async (req, res) => {
 router.get('/logout', (req, res) => {
   req.logout();
   res.json({ msg: 'logged out' });
+  res.status(301).redirect('http://localhost:3000/');
 });
 
 module.exports = router;

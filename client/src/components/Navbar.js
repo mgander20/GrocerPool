@@ -62,6 +62,13 @@ function NavbarLoggedIn() {
         <Link className={classes.link} to="/order">
           <Button className={classes.btn2}>Create++</Button>
         </Link>
+        <a
+          target="_blank"
+          className={classes.link}
+          href="http://localhost:5000/api/users/logout"
+        >
+          <Button className={classes.btn2}>Logout</Button>
+        </a>
       </Box>
     </Box>
   );
