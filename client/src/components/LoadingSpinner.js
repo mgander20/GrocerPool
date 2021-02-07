@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function LoadingSpinner() {
-    return (
-        <div>
-            Loading...
-        </div>
-    )
+  return <div>Loading...</div>;
 }
 
-export default LoadingSpinner
+export default LoadingSpinner;

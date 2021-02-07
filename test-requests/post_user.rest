@@ -1,9 +1,9 @@
 curl --request POST \
   --url https://8a52681b-0249-48e6-a0c8-fd0516d03965-us-east1.apps.astra.datastax.com/api/rest/v2/namespaces/app/collections/users \
-  -H "X-Cassandra-Token: c94f24fe-e011-4a42-ac03-ed74a3384888" \
+  -H "X-Cassandra-Token: 7fc513fb-6a22-4af0-9f4d-0ffd47c1af0d" \
   -H 'Content-Type: application/json' \
   -d '{
-    "email": "Test",
+    "email": "Test#2",
     "password": "hashed",
     "phoneNumber": "test",
     "firstName": "test",
