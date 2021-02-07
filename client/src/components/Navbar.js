@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 function NavbarLoggedIn() {
   const classes = useStyles();
   const { state, dispatch } = useContext(AppContext);
-  const backendCall = `${process.env.BACKEND_HOST}/api/users/logout`;
+  const backendCall = `${process.env.REACT_APP_API}/api/users/logout`;
   return (
     <Box m={3} display="flex" justifyContent="space-between">
       <Link className={classes.link} to="/">
