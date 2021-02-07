@@ -112,6 +112,7 @@ function WelcomePage() {
             </Box>
 
         <Container className={classes.bodyTwo} maxWidth="lg">
+        <h1 className="header-body">How it Works</h1>
             <Grid item xs={12}>
                 <Grid container justify="center" spacing={5}>
                 {CARD_DATA.map((item) => (
