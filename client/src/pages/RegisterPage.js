@@ -15,14 +15,14 @@ import { AppContext } from "../State"
 
 const useStyles = makeStyles((theme) => ({
     leftBox : {
-        backgroundColor: "#6fb091",
+        backgroundColor: "#20393A",
         width: "50%",
         height: "100vh"
     },
     rightBox: {
         display: "flex",
         flexDirection: "column",
-        margin: "auto"
+        margin: "auto",
     }
   }));
 
