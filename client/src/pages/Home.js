@@ -27,6 +27,12 @@ import Image3 from '../styles/img/home-bottom-illustration.png';
 const useStyles = makeStyles((theme) => ({
   banner: {
     width: '100%',
+    textAlign: 'center',
+  },
+  banner2: {
+    width: '100%',
+    textAlign: 'center',
+    marginBottom: '10%',
   },
   bodySub: {
     border: '1px solid grey',
@@ -38,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     overflowX: undefined,
   },
   body: {
-    margin: '60px 0px',
+    margin: '10% 0',
   },
   cardBody: {
     textAlign: 'center',
@@ -81,6 +87,12 @@ function Home({ history }) {
         src="https://i.imgur.com/rYXiycW.jpg"
         className={classes.banner}
       ></img>
+
+      <Box className={classes.banner2}>
+        <h1 className="header-main">Welcome to your Dashboard</h1> 
+        <h3>Don't forget to Check Out the Latest Upcoming Orders and Trips!</h3>
+        <h3>Update your Grocery List or go Shopping for a Friend.</h3>
+      </Box>
 
       <Box className={classes.body}>
         <h1 className="header-main">Scheduled Trips</h1>
