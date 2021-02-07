@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
   notificationBody: {
     backgroundColor: '#E7BDBE',
     color: 'white',
-    padding: '20px',
+    padding: '10%',
   },
   notificationCard: {
     display: 'flex',

@@ -1,3 +1,6 @@
+hr {
+  border-color: white;
+}
 .profileCard-hidden {
   position: relative;
   bottom: 295px;
