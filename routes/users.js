@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
@@ -49,6 +48,7 @@ router.post('/register', async (req, res) => {
   try {
     usersCollection = await astra()
   } catch (e) {
+    console.log(e)
     console.error("Could not connect to the collection model on Astra.")
   }
   const errors = [];
