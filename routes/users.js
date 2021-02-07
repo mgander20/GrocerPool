@@ -46,7 +46,7 @@ router.post('/register', async (req, res) => {
   //create collection
   let usersCollection = null;
   try {
-    usersCollection = await astra()
+    usersCollection = await astra('users')
   } catch (e) {
     console.log(e)
     console.error("Could not connect to the collection model on Astra.")
