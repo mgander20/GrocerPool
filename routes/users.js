@@ -155,7 +155,12 @@ router.post('/getUser', async (req, res) => {
 // Logout user
 router.get('/logout', (req, res) => {
   req.logout();
-  res.redirect(`${process.env.FRONTEND_HOST}`);
+  if (process.env.NODE_ENV === 'production') {
+    const host = '/';
+  } else {
+    const host = `${process.env.FRONTEND_HOST}`;
+  }
+  res.redirect(host);
 });
 
 module.exports = router;

@@ -50,7 +50,11 @@ function LoginPage({ history }) {
     const logInData = { email, password };
 
     try {
-      const host = process.env.REACT_APP_API + '/api/users/login';
+      if (process.env.NODE_ENV === 'production') {
+        const host = '/api/users/login';
+      } else {
+        const host = process.env.REACT_APP_API + '/api/users/login';
+      }
       console.log(host);
       const logInRes = await axios.post(host, logInData, {
         headers: {
