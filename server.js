@@ -17,16 +17,6 @@ require('./config/passport')(passport);
 //   }
 // }
 
-
-
-// const test_func = async () => {
-//   const test = await users.find({})
-// }
-
-
-
-
-
 // middleware
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
