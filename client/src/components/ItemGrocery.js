@@ -56,6 +56,7 @@ function ItemGrocery({ item, setGroceryCart, groceryCart }) {
   };
 
   return (
+    item.name ? 
     <Grid key={item} item>
       <Paper className={classes.paper}>
         <img className={classes.img} src={item.image} alt={item.image}></img>
@@ -82,7 +83,7 @@ function ItemGrocery({ item, setGroceryCart, groceryCart }) {
         </Box>
       </Paper>
     </Grid>
-  );
-}
+    : null 
+  )}
 
 export { ItemGrocery };
