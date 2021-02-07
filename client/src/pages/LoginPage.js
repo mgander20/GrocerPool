@@ -19,19 +19,19 @@ import Paper from '@material-ui/core/Paper';
 const useStyles = makeStyles((theme) => ({
     
     mainBox:{
-        margin: "7vh",
-        borderRadius: "1vh",
+        
     },
     leftBox : {
-        backgroundColor: "#95592F",
+        backgroundColor: "#20393A",
         width: "50%",
-        height: "86vh",
+        height: "100vh",
     },
     rightBox: {
         display: "flex",
         flexDirection: "column",
         margin: "auto",
         padding: '60px',
+        
     },
     link: {
         textDecoration: 'none',
@@ -70,7 +70,7 @@ function LoginPage({ history }) {
     return (
         <Container maxWidth="lg">
             <Box className={classes.mainBox} display="flex" flexDirection="row" borderRadius="7%">
-                <Box  className={[classes.leftBox, "leftBox"]} borderRadius="7% 0 0 7%"></Box>
+                <Box  className={[classes.leftBox, "leftBox"]}></Box>
                 <Box className={classes.rightBox}>
                     <Link className={classes.link} to="/register" variant="contained">Register Instead</Link>
                     <h1>Welcome Back!</h1>

@@ -1,5 +1,8 @@
-.body {
-  background-color: #e9e5db;
+.header-body {
+  text-align: center;
+}
+.body-sub {
+  text-align: center;
 }
 @media (max-width: 850px) {
   .leftBox {
