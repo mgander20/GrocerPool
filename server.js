@@ -4,15 +4,15 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { ensureAuthenticated } = require('./helpers/authHelper');
-
+const path = require('path');
+const dotenv = require('dotenv').config();
 // intialize Express
 const app = express();
-const cors = require('cors')
 
 //use cors to allow cross origin resource sharing
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: `${process.env.FRONTEND_HOST}`,
     credentials: true,
   })
 );
@@ -30,8 +30,7 @@ require('./config/passport')(passport);
 // }
 
 // enable cords
-app.use(cors())
-
+app.use(cors());
 
 // middleware
 // parse application/x-www-form-urlencoded
@@ -52,6 +51,16 @@ app.get('/api/auth', ensureAuthenticated, (req, res) => {
 app.use('/api/users', require('./routes/users'));
 app.use('/api/grocery', require('./routes/grocery'));
 app.use('/api/groceryList', require('./routes/groceryList'));
+
+// serve static
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  );
+}
 
 // listen
 const PORT = process.env.PORT || 5000;

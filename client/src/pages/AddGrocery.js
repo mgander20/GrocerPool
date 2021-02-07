@@ -7,7 +7,6 @@ import { ItemGrocery } from '../components/ItemGrocery';
 import { getAll, submitGroceryList } from '../services/grocery';
 import axios from 'axios';
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: 'rgba(223, 230, 237, 0.8)',
@@ -47,35 +46,34 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function AddGrocery({ history }) {
-
   // States
-  const [groceryItems, setGroceryItems] = useState([])
-  const [groceryCart, setGroceryCart] = useState([])
+  const [groceryItems, setGroceryItems] = useState([]);
+  const [groceryCart, setGroceryCart] = useState([]);
 
-  const isValid = groceryCart.length === 0
+  const isValid = groceryCart.length === 0;
   // useEffects
 
   // On Mount Effect
   useEffect(() => {
-    getAll().then(response => {
-      const values = Object.values(response.data)
-      setGroceryItems(values)
-    })
-  }, [])
+    getAll().then((response) => {
+      const values = Object.values(response.data);
+      setGroceryItems(values);
+    });
+  }, []);
 
   const classes = useStyles();
 
   const doSubmitGroceryList = () => {
     const payload = {
-      userId : localStorage.getItem("uOttawaHackUser"),
-      items : [ "cheese", "deez", "nutz"]
-    }
-    submitGroceryList(payload).then(response => {
-      history.push("/confirm")
-      setGroceryItems([])
-      console.log("SENT, ID ->", response.data)
-    })
-  }
+      userId: localStorage.getItem('uOttawaHackUser'),
+      items: ['cheese', 'deez', 'nutz'],
+    };
+    submitGroceryList(payload).then((response) => {
+      history.push('/confirm');
+      setGroceryItems([]);
+      console.log('SENT, ID ->', response.data);
+    });
+  };
 
   return (
     <Container maxWidth="lg" className={classes.root}>
@@ -86,8 +84,9 @@ function AddGrocery({ history }) {
           <Grid item xs={12}>
             <Grid container justify="center" spacing={5}>
               {groceryItems.map((item) => (
-                <ItemGrocery 
-                  key={item} item={item}
+                <ItemGrocery
+                  key={item}
+                  item={item}
                   setGroceryCart={setGroceryCart}
                   groceryCart={groceryCart}
                 />
@@ -101,17 +100,17 @@ function AddGrocery({ history }) {
             <h1 className="header-main">Your Cart</h1>
             <ul>
               {groceryCart.map((item) => (
-                <li>
-                  { item.name }
-                </li>
+                <li>{item.name}</li>
               ))}
             </ul>
           </Grid>
           <Box>
-            <Button 
+            <Button
               onClick={doSubmitGroceryList}
               disabled={isValid}
-              variant="" className={classes.btn2}>
+              variant=""
+              className={classes.btn2}
+            >
               Submit List
             </Button>
           </Box>

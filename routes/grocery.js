@@ -51,6 +51,7 @@ router.get('/getGroceries', async (req, res) => {
     groceryCollection = await astra('grocery');
     console.log(groceryCollection);
     groceryCollection.find({}).then((items) => {
+      console.log(items)
       res.send(items)
     });
   } catch (e) {

@@ -50,15 +50,13 @@ function LoginPage({ history }) {
     const logInData = { email, password };
 
     try {
-      const logInRes = await axios.post(
-        'http://localhost:5000/api/users/login',
-        logInData,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+      const host = process.env.REACT_APP_API + '/api/users/login';
+      console.log(host);
+      const logInRes = await axios.post(host, logInData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       if (logInRes.data) {
         localStorage.setItem('uOttawaHackUser', email);
 

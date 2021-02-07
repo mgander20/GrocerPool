@@ -155,7 +155,7 @@ router.post('/getUser', async (req, res) => {
 // Logout user
 router.get('/logout', (req, res) => {
   req.logout();
-  res.redirect('http://localhost:3000/');
+  res.redirect(`${process.env.FRONTEND_HOST}`);
 });
 
 module.exports = router;

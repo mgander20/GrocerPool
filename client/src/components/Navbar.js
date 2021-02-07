@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 function NavbarLoggedIn() {
   const classes = useStyles();
   const { state, dispatch } = useContext(AppContext);
-
+  const backendCall = `${process.env.REACT_APP_API}/api/users/logout`;
   return (
     <Box m={3} display="flex" justifyContent="space-between">
       <Link className={classes.link} to="/">
@@ -65,11 +65,7 @@ function NavbarLoggedIn() {
         <Link className={classes.link} to="/order">
           <Button className={classes.btn2}>Create++</Button>
         </Link>
-        <a
-          target="_blank"
-          className={classes.link}
-          href="http://localhost:5000/api/users/logout"
-        >
+        <a target="_blank" className={classes.link} href={backendCall}>
           <Button className={classes.btn2} onClick={logoutClick}>
             Logout
           </Button>
