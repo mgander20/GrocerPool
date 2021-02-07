@@ -22,7 +22,7 @@ module.exports = async function (passport) {
       },
       async (email, password, done) => {
         // match user
-        user = await usersCollection.findOne({ email });
+        user = await usersCollection.findOne({ email: { $eq: email } });
         if (!user) {
           return done(null, false, { message: 'No user found' });
         }
