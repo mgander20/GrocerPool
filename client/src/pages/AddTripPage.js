@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     overflowX: undefined,
   },
   mainBox: {
-    backgroundColor: 'rgba(44,174,159,0.1)',
+    backgroundColor: '#FFFFFF', 
     height: '70vh',
     textAlign: 'center',
     justifyItems: 'center',
@@ -61,21 +61,23 @@ const useStyles = makeStyles((theme) => ({
     padding: '60px',
   },
   btn2: {
-    backgroundColor: 'rgba(44,174,159,09)',
+    backgroundColor: "#E9E5DB",
     color: 'white',
-    margin: '5px 10px',
+    margin: '10px 0',
     minWidth: '100px',
+    padding: "15px",
   },
   inputGroup: {
     color: 'white',
     marginLeft: '300px',
-    backgroundColor: 'rgba(231, 219, 190, 0.42)',
+    backgroundColor: '#E7BDBE',
     padding: '50px',
     margin: '20px',
     borderRadius: '30px',
   },
   input: {
     margin: 5,
+    backgroundColor: "White",
     borderColor: 'white',
   },
 }));
