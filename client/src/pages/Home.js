@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-function Home() {
+function Home({history}) {
     const classes = useStyles();
 
     const { state, dispatch } = useContext(AppContext)
@@ -82,7 +82,7 @@ function Home() {
                 <GridList className={classes.gridList} cols={2.5}>
                     <Table className={classes.table}>                    
                         {
-                            SHOPPERS_DATA.map(item => (<ProfileCard />))
+                            SHOPPERS_DATA.map(item => (<ProfileCard history={history} />))
                         }
                     </Table>
                 </GridList>
@@ -93,7 +93,7 @@ function Home() {
                 <GridList className={classes.gridList} cols={2.5}>
                     <Table className={classes.table}>                    
                         {
-                            ORDER_DATA.map(item => (<ProfileCardTwo />))
+                            ORDER_DATA.map(item => (<ProfileCardTwo history={history} />))
                         }
                     </Table>
                 </GridList>
@@ -119,7 +119,7 @@ function Home() {
     )
 }
 
-export function ProfileCard() {
+export function ProfileCard({ history }) {
     const classes = useStyles();
 
     return(
@@ -132,13 +132,15 @@ export function ProfileCard() {
             </div>
             <div className="profileCard-hidden">
                 <img className="profile-img" src="https://i.imgur.com/tLKjtrE.png"></img>
-                <Button>Request Order</Button>
+                <Button
+                onClick={()=> {history.push("/chat")}}
+                >Request Order</Button>
             </div>
         </Box>
     )
 }
 
-export function ProfileCardTwo() {
+export function ProfileCardTwo({ history }) {
     const classes = useStyles();
 
     return(
@@ -151,7 +153,9 @@ export function ProfileCardTwo() {
             </div>
             <div className="profileCard-hidden">
                 <img className="profile-img" src="https://i.imgur.com/Ahe5fUo.png"></img>
-                <Button>Pickup Order</Button>
+                <Button
+                onClick={()=> {history.push("/chat")}}
+                >Pickup Order</Button>
             </div>
         </Box>
     )
