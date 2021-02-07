@@ -1,4 +1,4 @@
 curl --request GET \
-  --url https://8a52681b-0249-48e6-a0c8-fd0516d03965-us-east1.apps.astra.datastax.com/api/rest/v2/namespaces/app/collections/users \
-  -H "X-Cassandra-Token: 7fc513fb-6a22-4af0-9f4d-0ffd47c1af0d" \
+  --url https://8a52681b-0249-48e6-a0c8-fd0516d03965-us-east1.apps.astra.datastax.com/api/rest/v2/namespaces/app/collections/users?page-size=20\
+  -H "X-Cassandra-Token: 2c0fbe9d-2ffc-4894-9065-e0dd0bb4d79f" \
   -H 'Content-Type: application/json'

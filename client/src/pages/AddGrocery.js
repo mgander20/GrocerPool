@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { NavbarLoggedIn } from '../components/Navbar';
 import { ItemGrocery } from '../components/ItemGrocery';
-import groceryService from '../services/grocery';
+import { getAll } from '../services/grocery';
 import axios from 'axios';
 
 
@@ -56,9 +56,9 @@ function AddGrocery() {
 
   // On Mount Effect
   useEffect(() => {
-    groceryService.getAll().then(groceries => {
-      setGroceries(groceries)
-      console.log('GROCERIES', groceries)
+    getAll().then(groceries => {
+      setGroceries(groceries.data)
+      console.log('GROCERIES', groceries.data)
     })
   }, [])
 
