@@ -7,6 +7,8 @@ import {
   Redirect,
   Link,
 } from 'react-router-dom';
+import dotenv1 from 'dotenv';
+const dotenv = dotenv1.config();
 
 // Custom Pages
 import LoginPage from './pages/LoginPage';
