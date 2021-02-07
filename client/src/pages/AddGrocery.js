@@ -49,16 +49,17 @@ const useStyles = makeStyles((theme) => ({
 function AddGrocery() {
 
   // States
-  const [groceries, setGroceries] = useState([])
+  const [groceryItems, setGroceryItems] = useState([])
+  const [groceryCart, setGroceryCart] = useState([])
 
-
+  const isValid = groceryCart.length === 0
   // useEffects
 
   // On Mount Effect
   useEffect(() => {
     getAll().then(response => {
       const values = Object.values(response.data)
-      setGroceries(values)
+      setGroceryItems(values)
     })
   }, [])
 
@@ -72,8 +73,12 @@ function AddGrocery() {
         <Container className={classes.leftSideBody} maxWidth="lg">
           <Grid item xs={12}>
             <Grid container justify="center" spacing={5}>
-              {groceries.map((item) => (
-                <ItemGrocery key={item} item={item} />
+              {groceryItems.map((item) => (
+                <ItemGrocery 
+                  key={item} item={item}
+                  setGroceryCart={setGroceryCart}
+                  groceryCart={groceryCart}
+                />
               ))}
             </Grid>
           </Grid>
@@ -83,13 +88,17 @@ function AddGrocery() {
           <Grid item xs={12}>
             <h1 className="header-main">Your Cart</h1>
             <ul>
-              {[1, 2, 3, 4, 5].map((item) => (
-                <li>Hi</li>
+              {groceryCart.map((item) => (
+                <li>
+                  { item.name }
+                </li>
               ))}
             </ul>
           </Grid>
           <Box>
-            <Button variant="" className={classes.btn2}>
+            <Button 
+              disabled={isValid}
+              variant="" className={classes.btn2}>
               Submit List
             </Button>
           </Box>
