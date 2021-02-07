@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
         width: "100%",
         display: 'flex',
         justifyContent: "space-around",
-        paddingBottom: "9px",
         marginBottom: "20px"
     },
     categoryImg: {

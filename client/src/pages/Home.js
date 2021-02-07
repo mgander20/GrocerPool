@@ -78,7 +78,7 @@ function Home() {
             <img src="https://i.imgur.com/rYXiycW.jpg" className={classes.banner}></img>
 
             <Box className={classes.body}>
-                <h1 className="header-main">Upcoming Scheduled Trips</h1>
+                <h1 className="header-main">Scheduled Trips</h1>
                 <GridList className={classes.gridList} cols={2.5}>
                     <Table className={classes.table}>                    
                         {
@@ -89,7 +89,7 @@ function Home() {
             </Box>
             
             <Box className={classes.body}>
-                <h1 className="header-main">Upcoming Requested Orders</h1>
+                <h1 className="header-main">Requested Orders</h1>
                 <GridList className={classes.gridList} cols={2.5}>
                     <Table className={classes.table}>                    
                         {
