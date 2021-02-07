@@ -3,7 +3,16 @@ const bcrypt = require('bcryptjs');
 
 // load user model
 
-module.exports = function (passport) {
+module.exports = async function (passport) {
+
+  // load user collection
+  let usersCollection = null;
+  try {
+    usersCollection = await astra()
+  } catch (e) {
+    console.error("Could not connect to the collection model on Astra.")
+  }
+
   passport.use(
     new LocalStrategy(
       {
@@ -11,7 +20,7 @@ module.exports = function (passport) {
       },
       async (email, password, done) => {
         // match user
-        user = await User.findOne({ email });
+        user = await usersCollection.findOne({ email });
         if (!user) {
           return done(null, false, { message: 'No user found' });
         }
@@ -33,7 +42,7 @@ module.exports = function (passport) {
   });
 
   passport.deserializeUser(function (id, done) {
-    User.findById(id, function (err, user) {
+    usersCollection.findById(id, function (err, user) {
       done(err, user);
     });
   });

@@ -2,10 +2,27 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
-const users = require('../config/astra');
+const astra = require('../config/astra');
 // Load user model
 
 const router = express.Router();
+
+// collection definition
+
+// const connectToUsers = async () => {
+//   let users = null;
+//   try {
+//     users = await astra()
+//     users.find({}).then(res => {
+//       console.log(res)
+//     })
+
+//   } catch (e) {
+//     console.error(e)
+//   }
+// }
+
+// connectToUsers()
 
 // login success response
 router.get('/login-success', (req, res) => {
@@ -27,6 +44,13 @@ router.post('/login', (req, res, next) => {
 
 // register form post
 router.post('/register', async (req, res) => {
+  //create collection
+  let usersCollection = null;
+  try {
+    usersCollection = await astra()
+  } catch (e) {
+    console.error("Could not connect to the collection model on Astra.")
+  }
   const errors = [];
   console.log(req.body.password);
   if (req.body.password != req.body.password2) {
@@ -46,21 +70,29 @@ router.post('/register', async (req, res) => {
       password2: req.body.password2,
     });
   } else {
-    let user = await User.findOne({ email: req.body.email });
+    let user = await usersCollection.findOne({ email: req.body.email });
     if (!user) {
-      const newUser = new User({
+      // const newUser = new User({
+      //   firstName: req.body.firstName,
+      //   lastName: req.body.lastName,
+      //   email: req.body.email,
+      //   phoneNumber: req.body.phoneNumber,
+      //   password: req.body.password,
+      // });
+      const newUser = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
         phoneNumber: req.body.phoneNumber,
         password: req.body.password,
-      });
+      }
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, async (err, hash) => {
           if (err) throw err;
           newUser.password = hash;
           try {
-            let saveUser = await newUser.save(); //when fail its goes to catch
+            //let saveUser = await newUser.save(); //when fail its goes to catch
+            let saveUser = await usersCollection.create(newUser)
             console.log(saveUser); //when success it print.
             console.log('after save');
             res.json({ msg: 'User Saved' });
