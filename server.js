@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const { ensureAuthenticated } = require('./helpers/authHelper');
 const path = require('path');
-
+const dotenv = require('dotenv').config();
 // intialize Express
 const app = express();
 

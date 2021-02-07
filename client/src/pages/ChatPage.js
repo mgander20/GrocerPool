@@ -19,12 +19,15 @@ import { NavbarLoggedIn } from '../components/Navbar';
 import { ORDER_DATA } from '../util/Consts';
 import { Table } from '@material-ui/core';
 
+//Images
+import Image from '../styles/img/user-profile-pic.png';
+
 // COmponents
 import { ProfileCardTwo } from '../pages/Home';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: 'rgba(44,174,159,0.1)',
+    backgroundColor: 'white',//'rgba(44,174,159,0.1)',
   },
   body: {
     margin: '60px 0px',
@@ -83,14 +86,15 @@ const useStyles = makeStyles((theme) => ({
   },
   leftBox: {
     border: '1px solid rgba(44,174,159,09)',
-    width: '50%',
+    width: '35%',
     margin: '5px',
+    backgroundColor: 'rgba(223, 230, 237, 0.8)',
   },
   rightBox: {
     border: '1px solid rgba(44,174,159,09)',
     backgroundColor: 'white',
     margin: '5px',
-    width: '50%',
+    width: '60%',
   },
   img: {
     width: '80px',
@@ -135,7 +139,7 @@ function ChatPage() {
             <Box display="flex" flexDirection="row">
               <img
                 className={classes.img}
-                src="https://i.imgur.com/tLKjtrE.png"
+                src={Image}//"https://i.imgur.com/tLKjtrE.png"
               ></img>
               <p className="header-main">Name</p>
             </Box>
@@ -160,7 +164,7 @@ function ChatCell() {
 
   return (
     <Box className={classes.cellBody} p={2} display="flex" direction="row">
-      <img className={classes.img} src="https://i.imgur.com/tLKjtrE.png"></img>
+      <img className={classes.img} src={Image}></img>
       <Box>
         <p>Name</p>
         <p className="body-text-three">Recent Messages</p>
