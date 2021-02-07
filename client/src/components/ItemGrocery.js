@@ -2,7 +2,7 @@ import React from 'react'
 
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import { FormControl, InputLabel, Select, MenuItem, Box } from '@material-ui/core';
+import { TextField, FormControl, InputLabel, Select, MenuItem, Box } from '@material-ui/core';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
@@ -23,10 +23,9 @@ const useStyles = makeStyles((theme) => ({
         display: 'block',
         marginTop: theme.spacing(2),
       },
-      formControl: {
-        margin: theme.spacing(1),
-        minWidth: 120,
-      },
+    quantity: {
+        margin: '10px'
+    }
   }));
 
 const IMG= "https://i.pinimg.com/originals/1b/85/de/1b85de38883996f60285d6a8bf266d01.png"
@@ -52,34 +51,20 @@ function ItemGrocery({ item }) {
         <Grid key={item} item>
             <Paper className={classes.paper}>
                 <img className={classes.img} src={IMG} alt={item.src}></img>
-                <p>{ item.title }</p>
+                <p>Product Title</p>
+                <p className="body-text-three">Product Description</p>
+                <span>$10.0</span>
 
                 <Box display="flex" flexDirection="column">
-                    <FormControl className={classes.formControl}>
-                        <InputLabel id="demo-controlled-open-select-label">Quantity</InputLabel>
-                        <Select
-                        labelId="demo-controlled-open-select-label"
-                        id="demo-controlled-open-select"
-                        open={open}
-                        onClose={handleClose}
-                        onOpen={handleOpen}
-                        value={quantity}
-                        onChange={handleChange}
-                        >
-                        <MenuItem value="">
-                            <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={1}>1</MenuItem>
-                        <MenuItem value={2}>2</MenuItem>
-                        <MenuItem value={3}>3</MenuItem>
-                        <MenuItem value={4}>4</MenuItem>
-                        <MenuItem value={5}>5</MenuItem>          
-                        <MenuItem value={6}>6</MenuItem>
-                        <MenuItem value={7}>7</MenuItem>                        
-                        <MenuItem value={8}>8</MenuItem>
-                        <MenuItem value={9}>9</MenuItem>
-                        </Select>
-                    </FormControl>
+                <TextField
+                    className={classes.quantity}
+                    id="standard-number"
+                    label="Number"
+                    type="number"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    />
                     <Button>Add to Cart</Button>
                 </Box>
             </Paper>

@@ -154,7 +154,7 @@ function SimilarRequests({storeTime, storeName, storeLocation, storeDate}) {
             <span className="header-sub"><b>on {storeDate}</b></span>
             <img className={classes.banner} src="https://i.imgur.com/rAGlTtz.png"></img>
         </Box>
-        <h1 className="header-main">Upcoming Requested Orders</h1>
+        <h1 className="header-main">Requested Orders</h1>
         <GridList className={classes.gridList} cols={2.5}>
             <Table className={classes.table}>                    
                 {
