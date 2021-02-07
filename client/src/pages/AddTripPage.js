@@ -15,7 +15,7 @@ import GridList from '@material-ui/core/GridList';
 
  // Modules
  import { AppContext } from "../State"
-import { NavbarLoggedIn, NavbarLoggedInTwo } from '../components/Navbar';
+import { NavbarLoggedIn } from '../components/Navbar';
 import { ORDER_DATA } from '../util/Consts';
 import { Table } from '@material-ui/core';
 
@@ -104,7 +104,7 @@ function AddTripPage() {
 
     return (
         <Container maxWidth="lg">
-            <NavbarLoggedInTwo />
+            <NavbarLoggedIn />
             { 
             tripConfirmed ? <SimilarRequests storeName={storeName} storeLocation={storeLocation} storeDate={storeDate} storeTime={storeTime} /> :
             <Box p={5} className={classes.mainBox} display="flex" flexDirection="column" borderRadius="7%" textAlign="center">
