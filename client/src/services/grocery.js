@@ -1,9 +1,14 @@
 import axios from 'axios'
-const baseUrl = '/api/grocery'
+const baseUrl = '/api/grocery/getGroceries'
 
-const getAll = () => {
-  const request = axios.get(baseUrl);
-  return request.then(response => response.data);
+const getAll = async () => {
+
+  try {
+    const response = axios.get(baseUrl);
+    return response
+  } catch (error) {
+    console.log(error)
+  }
 }
 
-export default { getAll }
+export { getAll }

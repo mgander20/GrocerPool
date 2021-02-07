@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { NavbarLoggedIn } from '../components/Navbar';
 import { ItemGrocery } from '../components/ItemGrocery';
-import groceryService from '../services/grocery';
+import { getAll } from '../services/grocery';
 import axios from 'axios';
 
 
@@ -49,16 +49,16 @@ const useStyles = makeStyles((theme) => ({
 function AddGrocery() {
 
   // States
-  const [groceries, setGroceries] = useState('')
+  const [groceries, setGroceries] = useState([])
 
 
   // useEffects
 
   // On Mount Effect
   useEffect(() => {
-    groceryService.getAll().then(groceries => {
-      setGroceries(groceries)
-      console.log('GROCERIES', groceries)
+    getAll().then(response => {
+      const values = Object.values(response.data)
+      setGroceries(values)
     })
   }, [])
 
@@ -72,7 +72,7 @@ function AddGrocery() {
         <Container className={classes.leftSideBody} maxWidth="lg">
           <Grid item xs={12}>
             <Grid container justify="center" spacing={5}>
-              {[1, 2, 3, 4, 5].map((item) => (
+              {groceries.map((item) => (
                 <ItemGrocery key={item} item={item} />
               ))}
             </Grid>
