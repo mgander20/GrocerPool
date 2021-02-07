@@ -55,8 +55,7 @@ function ItemGrocery({ item, setGroceryCart, groceryCart }) {
     setOpen(true);
   };
 
-  return (
-    item.name ? 
+  return item.name ? (
     <Grid key={item} item>
       <Paper className={classes.paper}>
         <img className={classes.img} src={item.image} alt={item.image}></img>
@@ -68,19 +67,22 @@ function ItemGrocery({ item, setGroceryCart, groceryCart }) {
           <TextField
             className={classes.quantity}
             id="standard-number"
-            label="Number"
             type="number"
             InputLabelProps={{
               shrink: true,
             }}
           />
           <Button
-            onClick={() => {setGroceryCart([...groceryCart, item])}}
-          >Add to Cart</Button>
+            onClick={() => {
+              setGroceryCart([...groceryCart, item]);
+            }}
+          >
+            Add to Cart
+          </Button>
         </Box>
       </Paper>
     </Grid>
-    : null 
-  )}
+  ) : null;
+}
 
 export { ItemGrocery };
