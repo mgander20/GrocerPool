@@ -2,7 +2,6 @@ const express = require('express');
 const astra = require('./config/astra');
 const passport = require('passport');
 const bodyParser = require('body-parser');
-const cors = require('cors');
 
 // intialize Express
 const app = express();
