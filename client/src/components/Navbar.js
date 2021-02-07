@@ -77,4 +77,30 @@ function NavbarLoggedIn() {
     )
 }
 
-export { NavbarLoggedIn }
+function NavbarLoggedInTwo() {
+    const classes = useStyles();
+    const { state, dispatch } = useContext(AppContext)
+
+
+    return (
+        <Box m={3} display="flex" justifyContent="space-between">
+            <Link className={classes.link} to="/">
+                <h1>{state.appName}</h1>
+            </Link>
+            <Box m={3}>
+                <Link className={classes.link} to="/profile">
+                    <Button
+                        className={classes.btn3}
+                    >Profile</Button>
+                </Link>
+                <Link className={classes.link} to="/chat">
+                    <Button
+                        className={classes.btn3}
+                    >Chat</Button>
+                </Link>
+            </Box>
+        </Box>
+    )
+}
+
+export { NavbarLoggedIn, NavbarLoggedInTwo }
