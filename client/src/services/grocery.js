@@ -11,4 +11,15 @@ const getAll = async () => {
   }
 }
 
-export { getAll }
+const submitGroceryList = async (payload) => {
+
+  try {
+    const response = await axios.post("http://localhost:5000/api/groceryList", payload);
+    console.log(response)
+    return response
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export { getAll , submitGroceryList}

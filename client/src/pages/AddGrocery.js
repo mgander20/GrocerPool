@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { NavbarLoggedIn } from '../components/Navbar';
 import { ItemGrocery } from '../components/ItemGrocery';
-import { getAll } from '../services/grocery';
+import { getAll, submitGroceryList } from '../services/grocery';
 import axios from 'axios';
 
 
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function AddGrocery() {
+function AddGrocery({ history }) {
 
   // States
   const [groceryItems, setGroceryItems] = useState([])
@@ -64,6 +64,18 @@ function AddGrocery() {
   }, [])
 
   const classes = useStyles();
+
+  const doSubmitGroceryList = () => {
+    const payload = {
+      userId : localStorage.getItem("uOttawaHackUser"),
+      items : [ "cheese", "deez", "nutz"]
+    }
+    submitGroceryList(payload).then(response => {
+      history.push("/confirm")
+      setGroceryItems([])
+      console.log("SENT, ID ->", response.data)
+    })
+  }
 
   return (
     <Container maxWidth="lg" className={classes.root}>
@@ -97,6 +109,7 @@ function AddGrocery() {
           </Grid>
           <Box>
             <Button 
+              onClick={doSubmitGroceryList}
               disabled={isValid}
               variant="" className={classes.btn2}>
               Submit List

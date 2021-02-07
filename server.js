@@ -4,6 +4,7 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 // intialize Express
 const app = express();
+const cors = require('cors')
 
 // passport config
 require('./config/passport')(passport);
@@ -16,6 +17,10 @@ require('./config/passport')(passport);
 //     console.error(e)
 //   }
 // }
+
+// enable cords
+app.use(cors())
+
 
 // middleware
 // parse application/x-www-form-urlencoded

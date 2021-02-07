@@ -60,9 +60,6 @@ function ItemGrocery({ item, setGroceryCart, groceryCart }) {
     <Grid key={item} item>
       <Paper className={classes.paper}>
         <img className={classes.img} src={item.image} alt={item.image}></img>
-        {
-          console.log(" -->", item)
-        }
         <p>{item.name}</p>
         {/* <p className="body-text-three">Product Description</p> */}
         {/* <span>$10.0</span> */}
