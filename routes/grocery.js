@@ -7,6 +7,8 @@ router.get('/buildDb', async (req, res) => {
   // send a request to api with query letter and offset
   // for each item in the response body, upload to d
 
+  // create collection
+
   try {
     jsonRes = await axios.get(
       `https://api.spoonacular.com/food/ingredients/search?apiKey=edcf4ecd48484150bc7d090ea893b937&query=a&number=1000&offset=0`

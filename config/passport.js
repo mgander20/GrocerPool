@@ -1,5 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
+const astra = require('../config/astra');
 
 // load user model
 
@@ -8,8 +9,9 @@ module.exports = async function (passport) {
   // load user collection
   let usersCollection = null;
   try {
-    usersCollection = await astra()
+    usersCollection = await astra('users')
   } catch (e) {
+    console.log(e)
     console.error("Could not connect to the collection model on Astra.")
   }
 
