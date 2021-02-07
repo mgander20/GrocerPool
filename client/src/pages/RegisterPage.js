@@ -59,6 +59,16 @@ function RegisterPage({ history }) {
     };
 
     try {
+      const registerRes = axios.post(endpoint, user, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (process.env.NODE_ENV === 'production') {
+        const endpoint = '/api/users/register';
+      } else {
+        const endpoint = `${process.env.REACT_APP_API}/api/users/register`;
+      }
       const registerRes = axios.post(
         `${process.env.REACT_APP_API}/api/users/register`,
         user,
